@@ -1,6 +1,11 @@
 <main class="bg-gradient-to-b bg-sky-500 w-72 h-screen shadow-lg flex flex-col justify-between">
     <div class="p-4">
-        <h2 class="text-3xl font-bold text-white text-center">Menu Admin</h2>
+        <div class="flex justify-center py-4">
+            <img src="../img/sadik.png" alt="Logo Puskesmas" class="w-24 h-24 rounded-full shadow-lg border-4 border-white transform transition duration-300 hover:scale-105">
+        </div>
+        
+        <h2 class="text-3xl font-bold text-white text-center ">Menu Admin</h2>
+        <hr class=" border-white border-2 mt-6">
         <ul class="mt-6 space-y-6">
             <li>
                 <a href="/admin/profil"

@@ -17,14 +17,14 @@
     
         {{-- Card Antrian --}}
         <div class="container mx-auto flex justify-center mt-16">
-            <div class="bg-white rounded-xl shadow-xl p-10 max-w-lg w-full shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border">
+            <div class="bg-white rounded-xl shadow-xl p-10 max-w-lg w-full  transition-transform duration-300 hover:shadow-2xl hover:scale-105 border">
                 {{-- Header Antrian --}}
                 <h3 class="text-3xl font-bold text-red-500 mb-4 text-center ">Antrian Prioritas</h3>
                 
                 {{-- Informasi Antrian --}}
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-blue-800">No Antrian Anda</h2>
-                    <h1 class="text-6xl font-semibold text-green-500 mt-4 border-b-4 border-green-400 inline-block pb-2">A009</h1>
+                    <h1 class="text-6xl font-semibold text-green-500 mt-4 border-b-4 border-green-400 inline-block pb-2">B009</h1>
                     <h5 class="mt-6 text-xl font-medium text-gray-800">Sisa Antrian: <span class="text-red-500 font-semibold">5</span></h5>
                     <p class="mt-4 text-gray-500">No Antrian berlaku sesuai tanggal yang diterbitkan</p>
                 </div>

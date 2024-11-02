@@ -1,14 +1,13 @@
 @extends('komponen.app')
 
 @section('content')
-    {{-- Header Include --}}
-    @include('komponen.header')
+    
 
-    <div class="flex">
+    <div class="flex items-center" >
 
         @include('komponen.sidebar')
 
-        <main class="bg-white h-full shadow-lg rounded-lg w-full max-w-lg p-8 mx-auto mt-10 ">
+        <main class="bg-white h-full shadow-lg rounded-lg w-full max-w-lg p-8 mx-auto  ">
             <!-- Profil Header -->
             <div class="flex items-center justify-center mb-6">
                 <div class="bg-blue-500 text-white p-4 rounded-full">
