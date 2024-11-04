@@ -6,8 +6,12 @@
     <div class="flex items-center" >
 
         @include('komponen.sidebar')
+        <div class=" w-screen ">
+        
 
         <main class="bg-white h-full shadow-lg rounded-lg w-full max-w-lg p-8 mx-auto  ">
+
+            
             <!-- Profil Header -->
             <div class="flex items-center justify-center mb-6">
                 <div class="bg-blue-500 text-white p-4 rounded-full">
@@ -73,7 +77,7 @@
                 </div>
             </form>
         </main>
-
+    </div>
     </div>
 
   

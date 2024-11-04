@@ -50,12 +50,9 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <i class="fas fa-heartbeat text-red-500"></i>
-                        <p class="font-medium">Ada riwayat penyakit</p>
+                        <p class="font-medium">Disabilitas</p>
                     </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-exclamation-triangle text-red-500"></i>
-                        <p class="font-medium">Kondisi darurat</p>
-                    </div>
+                   
                 </div>
             </div>
         </div>
