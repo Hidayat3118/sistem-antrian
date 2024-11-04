@@ -1,5 +1,5 @@
 {{-- Navbar atau Header --}}
-<header class="bg-gradient-to-r bg-sky-500 shadow-xl p-6 ">
+<header class=" bg-sky-500 shadow-xl p-6 ">
     <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center space-x-4">    
             <div>

@@ -5,7 +5,6 @@
         @include('komponen.sidebar')
         
         
-
         <main class="w-full flex flex-col ">
             @include('komponen.headerAdmin')
             
