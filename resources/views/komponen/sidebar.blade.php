@@ -69,6 +69,5 @@
 </main>
 
 <!-- JavaScript Sidebar -->
-
 <script src="{{ asset('js/komponen/sidebar.js') }}"></script>
 

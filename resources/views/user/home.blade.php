@@ -19,8 +19,8 @@
 
         <div class="text-center mt-16">
             <h1 class="text-5xl font-extrabold text-blue-800 flex items-center justify-center">
-                <i class="fas fa-hands-helping text-yellow-400 mr-2"></i>
                 Selamat Datang
+                <i class="fas fa-hands-helping text-yellow-400 ml-2"></i>
             </h1>
             <h2 class="text-3xl font-semibold text-gray-600 mt-4">Silahkan Pilih Jenis Antrian :</h2>
             <p class="text-lg text-gray-500 mt-2">Kami siap membantu Anda dengan layanan terbaik.</p>

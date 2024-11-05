@@ -8,6 +8,5 @@
                 <p class="text-lg font-medium text-white opacity-80">Kesehatan Anda, Prioritas Kami</p>
             </div>
         </div>
-       
     </div>
 </header>

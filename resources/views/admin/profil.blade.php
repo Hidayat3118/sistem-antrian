@@ -79,8 +79,8 @@
                 </form>
             </main>
         
-         
-
         </main>
     </div>
+
+    <script src="{{ asset('js/admin/profil.js') }}"></script>
 @endsection
