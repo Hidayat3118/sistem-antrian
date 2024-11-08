@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
 
 // Routes User
@@ -29,6 +30,8 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
+
+Route::post('/admin/login', [adminController::class, 'login']);
 
 Route::get('/admin/loketSatu', function () {
     return view('admin.loketSatu');

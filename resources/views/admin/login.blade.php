@@ -13,11 +13,12 @@
                 </div>
             </div>
             <h2 class="text-center text-white text-2xl font-bold mb-6">Login Admin</h2>
-            <form>
+            <form action="/admin/login" method="POST">
+                @csrf
                 <div class="mb-5">
-                    {{-- Input email --}}
+                    {{-- Input username --}}
                     <div class="relative">
-                        <input type="email" placeholder="Username"
+                        <input type="text" placeholder="Username" name="username"
                             class="border border-gray-300 rounded-md py-2 px-10 w-full focus:outline-none focus:border-blue-400 transition duration-200 shadow-sm hover:shadow-md"
                             required>
                         <span class="absolute left-3 top-2 text-gray-400"><i class="fa-solid fa-user"></i></span>
@@ -25,9 +26,9 @@
                     </div>
                 </div>
                 <div class="mb-5">
-                    {{-- Input Admin --}}
+                    {{-- Input password --}}
                     <div class="relative">
-                        <input type="password" id="password" placeholder="Password"
+                        <input type="password" id="password" placeholder="Password" name="password"
                             class="border border-gray-300 rounded-md py-2 px-10 w-full focus:outline-none focus:border-blue-400 transition duration-200 shadow-sm hover:shadow-md"
                             required>
                         <span class="absolute left-3 top-2 text-gray-400"><i class="fa-solid fa-lock"></i></span>
@@ -37,7 +38,7 @@
                             <i class="fa-solid fa-eye" id="eyeIcon"></i>
                         </span>
                     </div>
-                    
+
                 </div>
                 <div class="flex items-center justify-between mb-5">
                     <label class="flex items-center">
