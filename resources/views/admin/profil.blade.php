@@ -28,9 +28,9 @@
                     <div class="mb-4">
                         <label for="fullname" class="block text-sm font-medium text-gray-600 mb-1">Nama Lengkap</label>
                         <div class="relative">
-                            <input type="text" id="fullname"
+                            <input type="text" id="fullname" name="nama"
                                 class="w-full p-3 pl-10 bg-gray-50 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none"
-                                value="Admin Example">
+                                value="{{ Auth::guard('admin')->user()->nama }}">
                             <i class="fas fa-user absolute left-3 top-4 text-gray-400"></i>
                         </div>
                     </div>
@@ -39,9 +39,9 @@
                     <div class="mb-4">
                         <label for="username" class="block text-sm font-medium text-gray-600 mb-1">Username</label>
                         <div class="relative">
-                            <input type="text" id="username"
+                            <input type="text" id="username" name="username"
                                 class="w-full p-3 pl-10 bg-gray-50 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none"
-                                value="admin123">
+                                value="{{ Auth::guard('admin')->user()->username }}">
                             <i class="fas fa-user-tag absolute left-3 top-4 text-gray-400"></i>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-medium text-gray-600 mb-1">Password</label>
                         <div class="relative">
-                            <input type="password" id="password"
+                            <input type="password" id="password" name="password"
                                 class="w-full p-3 pl-10 pr-10 bg-gray-50 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none">
                             <i class="fas fa-lock absolute left-3 top-4 text-gray-400"></i>
                             <i class="fas fa-eye absolute right-3 top-4 text-gray-400 cursor-pointer" id="togglePassword"></i>

@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="text-white font-semibold flex items-end">
-            <span>Hai Selamat Datang , </span>
-            <h2 class="ml-2 font-bold text-xl">Admin</h2>
+            <span>Hai Selamat Datang, </span>
+            <h2 class="ml-2 font-bold text-xl">{{ Auth::guard('admin')->user()->nama }}</h2>
         </div>
     </div>
 </header>
