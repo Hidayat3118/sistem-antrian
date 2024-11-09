@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('antrians', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tanggal_id')->constrained('tanggals');
+            $table->string('no_telp');
+            $table->string('nomor');
+            $table->boolean('isPriority');
+            $table->boolean('isFinish');
             $table->timestamps();
         });
     }

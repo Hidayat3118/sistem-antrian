@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('tanggals', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->integer('jmlh_umum');
+            $table->integer('jmlh_prioritas');
+            $table->integer('jmlh_tdk_selesai');
             $table->timestamps();
         });
     }
