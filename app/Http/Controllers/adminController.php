@@ -20,6 +20,6 @@ class adminController extends Controller
             return redirect()->intended('/admin/profil');
         }
 
-        return back()->with('error', 'Login Gagal !!');
+        return back()->with('error', 'Login Gagal, Username atau Password salah !!');
     }
 }

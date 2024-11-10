@@ -7,6 +7,14 @@
     <main class=" flex my-auto mt-36">
 
         <div class="bg-gradient-to-r bg-sky-500 rounded-lg shadow-lg p-8 w-[400px] mx-auto ">
+
+            //Notifikasi gagal login
+            @if (session('error'))
+                <div class="bg-red-500 text-white text-center p-3 rounded-md mb-4">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="flex items-center justify-center mb-4">
                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg">
                     <img src="../img/medis.png" alt="" class="w-12 h-12">
