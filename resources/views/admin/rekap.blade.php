@@ -75,28 +75,28 @@
                     {{-- Isi Kotak nya --}}
                     <tbody class="bg-white text-center">
                         <tr>
-                            <td class="border border-blue-500 px-4 py-2">30-12-2024</td>
+                            <td class="border border-blue-500 px-4 py-2">30-april-2024</td>
                             <td class="border border-blue-500 px-4 py-2">30</td>
                             <td class="border border-blue-500 px-4 py-2">30</td>
                             <td class="border border-blue-500 px-4 py-2">5</td>
 
                         </tr>
                         <tr>
-                            <td class="border border-blue-500 px-4 py-2">24-12-2024</td>
+                            <td class="border border-blue-500 px-4 py-2">24-april-2024</td>
                             <td class="border border-blue-500 px-4 py-2">24</td>
                             <td class="border border-blue-500 px-4 py-2">20</td>
                             <td class="border border-blue-500 px-4 py-2">8</td>
 
                         </tr>
                         <tr>
-                            <td class="border border-blue-500 px-4 py-2">19-12-2024</td>
+                            <td class="border border-blue-500 px-4 py-2">19-maret-2024</td>
                             <td class="border border-blue-500 px-4 py-2">56</td>
                             <td class="border border-blue-500 px-4 py-2">30</td>
                             <td class="border border-blue-500 px-4 py-2">3</td>
 
                         </tr>
                         <tr>
-                            <td class="border border-blue-500 px-4 py-2">20-12-2024</td>
+                            <td class="border border-blue-500 px-4 py-2">20-desember-2024</td>
                             <td class="border border-blue-500 px-4 py-2">87</td>
                             <td class="border border-blue-500 px-4 py-2">50</td>
                             <td class="border border-blue-500 px-4 py-2">5</td>
