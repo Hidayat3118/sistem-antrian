@@ -57,11 +57,11 @@
                 </a>
             </li>
             <li>
-                <form action="/admin/logout" method="POST">
+                <form action="/admin/logout" method="POST"
+                    class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
                     @csrf
                     <button type="submit">
-                        <a
-                            class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
+                        <a>
                             <i class="fas fa-sign-out-alt text-2xl mr-4 text-white"></i>
                             <span class="text-xl font-semibold text-white">Logout</span>
                         </a>
