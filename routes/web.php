@@ -33,6 +33,8 @@ Route::post('/admin/login', [adminController::class, 'login']);
 
 Route::post('/admin/logout', [adminController::class, 'logout']);
 
+Route::put('/admin/edit/{admin}', [adminController::class, 'update']);
+
 Route::get('/admin/loketSatu', function () {
     return view('admin.loketSatu');
 });
