@@ -27,11 +27,11 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
+Route::get('/admin/login', [adminController::class, 'viewLogin']);
 
 Route::post('/admin/login', [adminController::class, 'login']);
+
+Route::post('/admin/logout', [adminController::class, 'logout']);
 
 Route::get('/admin/loketSatu', function () {
     return view('admin.loketSatu');

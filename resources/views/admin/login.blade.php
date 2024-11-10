@@ -8,7 +8,7 @@
 
         <div class="bg-gradient-to-r bg-sky-500 rounded-lg shadow-lg p-8 w-[400px] mx-auto ">
 
-            //Notifikasi gagal login
+            {{-- Notifikasi gagal login --}}
             @if (session('error'))
                 <div class="bg-red-500 text-white text-center p-3 rounded-md mb-4">
                     {{ session('error') }}

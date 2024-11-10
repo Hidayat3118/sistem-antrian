@@ -1,9 +1,10 @@
 <main class="bg-gradient-to-b bg-sky-500 w-80 h-screen shadow-lg flex flex-col justify-between">
     <div class="p-4">
         <div class="flex justify-center py-4">
-            <img src="../img/sadik.png" alt="Logo Puskesmas" class="w-24 h-24 rounded-full shadow-lg border-4 border-white transform transition duration-300 hover:scale-105">
+            <img src="../img/sadik.png" alt="Logo Puskesmas"
+                class="w-24 h-24 rounded-full shadow-lg border-4 border-white transform transition duration-300 hover:scale-105">
         </div>
-        
+
         <h2 class="text-3xl font-bold text-white text-center ">Menu Admin</h2>
         <hr class=" border-white border-2 mt-6">
         <ul class="mt-6 space-y-6">
@@ -56,10 +57,16 @@
                 </a>
             </li>
             <li>
-                <a href="/admin/login" class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
-                    <i class="fas fa-sign-out-alt text-2xl mr-4 text-white"></i>
-                    <span class="text-xl font-semibold text-white">Logout</span>
-                </a>
+                <form action="/admin/logout" method="POST">
+                    @csrf
+                    <button type="submit">
+                        <a
+                            class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
+                            <i class="fas fa-sign-out-alt text-2xl mr-4 text-white"></i>
+                            <span class="text-xl font-semibold text-white">Logout</span>
+                        </a>
+                    </button>
+                </form>
             </li>
         </ul>
     </div>
@@ -70,4 +77,3 @@
 
 <!-- JavaScript Sidebar -->
 <script src="{{ asset('js/komponen/sidebar.js') }}"></script>
-

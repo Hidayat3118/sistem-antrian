@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 class adminController extends Controller
 {
+
+    public function viewLogin(){
+        return view('admin.login');
+    }
     public function login(Request $request) {
         $validateData = $request->validate([
             'username' => 'required',
@@ -20,6 +24,16 @@ class adminController extends Controller
             return redirect()->intended('/admin/profil');
         }
 
-        return back()->with('error', 'Login Gagal, Username atau Password salah !!');
+    return back()->with('error', 'Login Gagal !!');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/admin/login');
     }
 }
