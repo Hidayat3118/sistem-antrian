@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\antrianCrontroller;
 use Illuminate\Support\Facades\Route;
 
 // Routes User
-Route::get('/', function () {
-    return view('user.home');
-});
+Route::get('/', [antrianCrontroller::class, 'makeAntrian']);
+
 
 Route::get('/antrianUmum', function () {
     return view('user.antrianUmum');
