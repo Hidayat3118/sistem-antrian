@@ -6,7 +6,7 @@
 
 
     <div class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen py-10">
-        {{-- Tanggal wan waktu--}}
+        {{-- Tanggal wan waktu --}}
         <div class="flex justify-end container mx-auto">
             <div class="bg-white p-3 rounded-lg shadow-md flex items-center space-x-3 text-gray-600">
                 <i class="far fa-calendar-alt text-blue-600 text-lg"></i>
@@ -15,7 +15,7 @@
                 <span id="current-time" class="text-gray-600 font-bold"></span>
             </div>
         </div>
-        
+
 
         <div class="text-center mt-16">
             <h1 class="text-5xl font-extrabold text-blue-800 flex items-center justify-center">
@@ -29,18 +29,18 @@
         <div class="flex gap-16 mt-16 justify-center ">
             {{-- Tombol umum --}}
             <a href="/antrianUmum">
-            <button
-                class="text-4xl font-semibold text-white bg-green-600 hover:bg-green-700 py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform transition duration-300 hover:scale-110">
-                <i class="fas fa-user-friends mr-3"></i> UMUM
-            </button></a>
+                <button
+                    class="text-4xl font-semibold text-white bg-green-600 hover:bg-green-700 py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform transition duration-300 hover:scale-110">
+                    <i class="fas fa-user-friends mr-3"></i> UMUM
+                </button></a>
 
             {{-- Tombol Pioritas --}}
             <div class="text-center">
                 <a href="/antriaPrioritas">
-                <button
-                    class="text-4xl font-semibold text-white bg-red-500 hover:bg-red-600 py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform transition duration-300 hover:scale-110">
-                    <i class="fas fa-star mr-3"></i> PRIORITAS
-                </button></a>
+                    <button
+                        class="text-4xl font-semibold text-white bg-red-500 hover:bg-red-600 py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform transition duration-300 hover:scale-110">
+                        <i class="fas fa-star mr-3"></i> PRIORITAS
+                    </button></a>
 
                 {{-- Tulisan Pioritas --}}
                 <div class="bg-white shadow-md rounded-lg mt-6 p-6 text-gray-600 space-y-4">
@@ -52,7 +52,7 @@
                         <i class="fas fa-heartbeat text-red-500"></i>
                         <p class="font-medium">Disabilitas</p>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
