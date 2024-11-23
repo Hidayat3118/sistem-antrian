@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('rekaps', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->int('jmblh_umum');
-            $table->int('jmblh_prioritas');
-            $table->int('tdk_dilayani');
+            $table->integer('jmblh_umum');
+            $table->integer('jmblh_prioritas');
+            $table->integer('tdk_dilayani');
             $table->timestamps();
         });
     }
