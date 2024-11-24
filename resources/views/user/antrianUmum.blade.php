@@ -3,15 +3,18 @@
 @section('content')
     {{-- Header Include --}}
     @include('komponen.header')
+    <script>
+        updateDateTime();
+    </script>
 
     <main class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen py-10">
         {{-- Tanggal --}}
         <div class="flex justify-end container mx-auto">
             <div class="bg-white p-3 rounded-lg shadow-md flex items-center space-x-3 text-gray-600">
                 <i class="far fa-calendar-alt text-blue-600 text-lg"></i>
-                <span class="font-semibold text-lg">Senin, 14 Oktober 2024</span>
+                <span class="font-semibold text-lg">{{ $tanggal }}</span>
                 <span class="text-sm text-gray-500">-</span>
-                <span class="text-gray-600">08:30</span>
+                <span class="text-gray-600">{{ $waktu }}</span>
             </div>
         </div>
 
@@ -24,7 +27,7 @@
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold text-blue-800">No Antrian Anda</h2>
                     <h1 class="text-6xl font-semibold text-green-500 mt-4 border-b-4 border-green-400 inline-block pb-2">
-                        A009</h1>
+                        {{ $antrian }}</h1>
                     <h5 class="mt-6 text-xl font-medium text-gray-800">Sisa Antrian: <span
                             class="text-red-500 font-semibold">5</span></h5>
                     <p class="mt-4 text-gray-500">No Antrian berlaku sesuai tanggal yang diterbitkan</p>

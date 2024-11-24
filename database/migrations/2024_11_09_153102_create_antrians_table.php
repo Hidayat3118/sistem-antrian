@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('antrians', function (Blueprint $table) {
             $table->id();
             $table->string('no_telp');
-            $table->string('nomor');
+            $table->string('nomor_antrian');
             $table->boolean('isPriority');
             $table->boolean('isFinish');
             $table->timestamps();
