@@ -32,4 +32,9 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
         ]);
     }
+
+    public function simpanAntrian(Request $request){
+        dd($request);
+
+    }
 }

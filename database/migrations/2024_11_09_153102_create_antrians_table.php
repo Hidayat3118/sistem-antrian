@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('no_telp');
             $table->string('nomor_antrian');
+            $table->string('tanggal');
+            $table->string('waktu');
             $table->boolean('isPriority');
             $table->boolean('isFinish');
             $table->timestamps();

@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\Route;
 
 // Routes User
 Route::get('/', function () {
-    return view('user.home');
+return view('user.home');
 });
 
 
 Route::get('/antrianUmum', [antrianCrontroller::class, 'makeAntrian']);
+
+Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 
 Route::get('/antriaPrioritas', function () {
     return view('user.antrianPrioritas');
