@@ -34,7 +34,8 @@ class antrianCrontroller extends Controller
     }
 
     public function simpanAntrian(Request $request){
-        dd($request);
-
+        $validateData = $request->validate([
+                'nomor_antrian' => 'required',
+        ]);
     }
 }

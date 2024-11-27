@@ -34,6 +34,9 @@
                         <h5 class="mt-6 text-xl font-medium text-gray-800">Sisa Antrian: <span
                                 class="text-red-500 font-semibold">5</span></h5>
                         <p class="mt-4 text-gray-500">No Antrian berlaku sesuai tanggal yang diterbitkan</p>
+                        <input type="hidden" name="nomor_antrian" value="{{ $antrian }}">
+                        <input type="hidden" name="tanggal" value="{{ $tanggal }}">
+                        <input type="hidden" name="waktu" value="{{ $waktu }}">
                     </div>
                     <div class="flex  justify-center items-center pt-6 gap-2">
                         <label for="no" class="text-lg font-semibold text-gray-700">No Telepon :</label>
