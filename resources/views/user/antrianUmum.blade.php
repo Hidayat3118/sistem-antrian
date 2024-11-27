@@ -37,6 +37,7 @@
                         <input type="hidden" name="nomor_antrian" value="{{ $antrian }}">
                         <input type="hidden" name="tanggal" value="{{ $tanggal }}">
                         <input type="hidden" name="waktu" value="{{ $waktu }}">
+                        <input type="hidden" name="isPriority" value="0">
                     </div>
                     <div class="flex  justify-center items-center pt-6 gap-2">
                         <label for="no" class="text-lg font-semibold text-gray-700">No Telepon :</label>
