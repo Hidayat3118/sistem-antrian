@@ -9,7 +9,7 @@
         <div class="flex justify-end container mx-auto">
             <div class="bg-white p-3 rounded-lg shadow-md flex items-center space-x-3 text-gray-600">
                 <i class="far fa-calendar-alt text-blue-600 text-lg"></i>
-                <span class="font-semibold text-lg">Senin, 14 Oktober 2024</span>
+                <span class="font-semibold text-lg">{{ $tanggal }}</span>
                 <span class="text-sm text-gray-500">-</span>
                 <span class="text-gray-600">08:30</span>
             </div>

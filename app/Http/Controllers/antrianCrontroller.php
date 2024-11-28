@@ -10,14 +10,13 @@ class antrianCrontroller extends Controller
 {
     //
 
-    public function makeAntrian(){
+    public function makeAntrianUmum(){
         $date = Carbon::now()->translatedFormat('l, d F Y');
         $time = Carbon::now()->translatedFormat('H:i');
 
-        $lastQueue = Antrian::latest('id')->first();
+        $lastQueue = Antrian::where('isPriority', false)->latest('id')->first();
 
         if($lastQueue){
-
             $lastNumber = (int) substr($lastQueue->nomor_antrian, 1);
             $newNumber = $lastNumber + 1;
         } else {
@@ -33,10 +32,32 @@ class antrianCrontroller extends Controller
         ]);
     }
 
+    public function makeAntrianPrioritas(){
+        $date = Carbon::now()->translatedFormat('l, d F Y');
+        $time = Carbon::now()->translatedFormat('H:i');
+
+        $lastQueue = Antrian::where('isPriority', true)->latest('id')->first();
+
+        if($lastQueue){
+            $lastNumber = (int) substr($lastQueue->nomor_antrian, 1);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newQueueNumber = 'A' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
+        return view('user.antrianPrioritas', [
+            'antrian' => $newQueueNumber,
+            'tanggal' => $date,
+            'waktu' => $time,
+        ]);
+    }
+
     public function simpanAntrian(Request $request){
         $validateData = $request->validate([
                 'nomor_antrian' => 'required',
-                'no_telp' => 'required',
+                'no_telp' => 'required|numeric',
                 'tanggal' => 'required',
                 'waktu' => 'required',
                 'isPriority' => 'required',
