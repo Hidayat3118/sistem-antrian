@@ -61,7 +61,7 @@
                 <div class="bg-slate-200 p-10 rounded-lg w-11/12 max-w-2xl ">
                     <div class="flex justify-between items-center p-10">
                         <h2 class="text-xl font-semibold mx-auto">Cetak Antrian Anda</h2>
-                        <button onclick="hidePrintPreview()" class="text-red-500 text-4xl font-bold">&times;</button>
+                        <button onclick="hidePrintPreview()" type="button" class="text-red-500 text-4xl font-bold">&times;</button>
                     </div>
 
                     <!-- Konten yang akan dicetak -->

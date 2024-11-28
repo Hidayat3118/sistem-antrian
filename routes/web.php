@@ -12,7 +12,7 @@ return view('user.home');
 
 Route::get('/antrianUmum', [antrianCrontroller::class, 'makeAntrianUmum'])->name('umum');
 
-Route::get('/antriaPrioritas', [antrianCrontroller::class, 'makeAntrianPrioritas'])->name('prioritas');
+Route::get('/antrianPrioritas', [antrianCrontroller::class, 'makeAntrianPrioritas'])->name('prioritas');
 
 Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 

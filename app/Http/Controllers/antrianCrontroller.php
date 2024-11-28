@@ -55,6 +55,7 @@ class antrianCrontroller extends Controller
     }
 
     public function simpanAntrian(Request $request){
+
         $validateData = $request->validate([
                 'nomor_antrian' => 'required',
                 'no_telp' => 'required|numeric',
@@ -65,6 +66,11 @@ class antrianCrontroller extends Controller
 
         Antrian::create($validateData);
 
-        return redirect('/antrianUmum')->with('succes', 'Antrian telah dibuat');
+        if($validateData['isPriority']){
+            return redirect('/antrianPrioritas')->with('succes', 'Antrian telah dibuat');
+        } else {
+            return redirect('/antrianUmum')->with('succes', 'Antrian telah dibuat');
+        }
+        
     }
 }
