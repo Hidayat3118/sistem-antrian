@@ -37,9 +37,7 @@ Route::post('/admin/logout', [adminController::class, 'logout']);
 
 Route::put('/admin/edit/{admin}', [adminController::class, 'update']);
 
-Route::get('/admin/loketSatu', function () {
-    return view('admin.loketSatu');
-});
+Route::get('/admin/loketSatu', [antrianCrontroller::class, 'loketUmum']);
 
 Route::get('/admin/loketDua', function () {
     return view('admin.loketDua');

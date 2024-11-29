@@ -26,7 +26,7 @@
                         <h1 id="nomorAntrian"
                             class="text-8xl font-extrabold flex items-center justify-center space-x-2 text-gray-200">
                             <i class="fas fa-ticket-alt"></i>
-                            <span>A009</span>
+                            <span>{{ $nomor_antrian }}</span>
                         </h1>
                         <p class="mt-4 text-lg font-semibold">Status: <span class="font-light">Belum dipanggil</span></p>
                     </div>

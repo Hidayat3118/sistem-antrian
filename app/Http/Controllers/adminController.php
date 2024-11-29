@@ -56,4 +56,6 @@ class adminController extends Controller
 
         return back()->with('success', 'Profil berhasil diubah');
     }
+
+
 }

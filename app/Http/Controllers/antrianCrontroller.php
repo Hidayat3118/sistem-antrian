@@ -71,6 +71,14 @@ class antrianCrontroller extends Controller
         } else {
             return redirect('/antrianUmum')->with('succes', 'Antrian telah dibuat');
         }
+    }
+
+    public function loketUmum(){
         
+        $antrian = Antrian::where('isFinish', false)->first();
+
+        return view('admin.loketSatu', [
+            'nomor_antrian' => $antrian->nomor_antrian,
+        ]);
     }
 }
