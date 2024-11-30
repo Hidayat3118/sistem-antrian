@@ -43,16 +43,18 @@
                             <span class="text-xs md:text-sm lg:text-base">Panggil/Ulangi</span>
                         </button>
                         {{-- Selesai --}}
-                        <form action="/antrian/selesai/{{ $antrian->id ?? '' }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <button id="selesaiBtn" type="submit"
-                                class="bg-green-500 hover:bg-green-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
-                                onclick="tandaiSelesai()">
-                                <i id="iconSelesai" class="fas fa-check-circle"></i>
-                                <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
-                            </button>
-                        </form>
+                        @if ($antrian)
+                            <form action="/antrian/selesai/{{ $antrian->id ?? '' }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button id="selesaiBtn" type="submit"
+                                    class="bg-green-500 hover:bg-green-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
+                                    onclick="tandaiSelesai()">
+                                    <i id="iconSelesai" class="fas fa-check-circle"></i>
+                                    <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
+                                </button>
+                            </form>
+                        @endif
                         {{-- Lanjut --}}
                         <button
                             class="bg-green-500 hover:bg-green-600  py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">

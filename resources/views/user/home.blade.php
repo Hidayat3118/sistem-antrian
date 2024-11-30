@@ -36,7 +36,7 @@
 
             {{-- Tombol Pioritas --}}
             <div class="text-center">
-                <a href="/antriaPrioritas">
+                <a href="/antrianPrioritas">
                     <button
                         class="text-4xl font-semibold text-white bg-red-500 hover:bg-red-600 py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform transition duration-300 hover:scale-110">
                         <i class="fas fa-star mr-3"></i> PRIORITAS
