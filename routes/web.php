@@ -39,9 +39,7 @@ Route::put('/admin/edit/{admin}', [adminController::class, 'update']);
 
 Route::get('/admin/loketSatu', [antrianCrontroller::class, 'loketUmum']);
 
-Route::get('/admin/loketDua', function () {
-    return view('admin.loketDua');
-});
+Route::get('/admin/loketDua', [antrianCrontroller::class, 'loketPrioritas']);
 
 Route::get('admin/rekap', function () {
     return view('admin/rekap');

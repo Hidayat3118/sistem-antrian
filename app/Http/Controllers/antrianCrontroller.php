@@ -88,6 +88,19 @@ class antrianCrontroller extends Controller
         ]);
     }
 
+    public function loketPrioritas()
+    {
+        $antrian = Antrian::where('isFinish', false )
+            ->where('isPriority', true)
+            ->first();
+
+        return view('admin.loketDua', [
+            'antrian' => $antrian,
+        ]);
+    }
+
+
+
     public function selesai(Antrian $antrian){
        $antrian->isFinish = true;
        $antrian->save();
