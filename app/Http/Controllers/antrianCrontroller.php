@@ -84,7 +84,14 @@ class antrianCrontroller extends Controller
             ->first();
 
         return view('admin.loketSatu', [
-            'nomor_antrian' => $antrian->nomor_antrian ?? 'Kosong',
+            'antrian' => $antrian,
         ]);
+    }
+
+    public function selesai(Antrian $antrian){
+       $antrian->isFinish = true;
+       $antrian->save();
+
+       return back()->with('succes', 'antrian selesai');
     }
 }

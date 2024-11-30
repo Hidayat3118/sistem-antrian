@@ -29,11 +29,11 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/login', [adminController::class, 'viewLogin']);
+Route::get('/admin/login', [adminController::class, 'viewLogin'])->middleware('guest');
 
 Route::post('/admin/login', [adminController::class, 'login']);
 
-Route::post('/admin/logout', [adminController::class, 'logout']);
+Route::post('/admin/logout', [adminController::class, 'logout'])->middleware('auth');
 
 Route::put('/admin/edit/{admin}', [adminController::class, 'update']);
 
@@ -48,5 +48,7 @@ Route::get('admin/rekap', function () {
 });
 
 Route::get('admin/profil', function () {
-    return view('admin/profil');
+    return view('admin.profil');
 });
+
+Route::put('antrian/selesai/{antrian}', [antrianCrontroller::class, 'selesai']);
