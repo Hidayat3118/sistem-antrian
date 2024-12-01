@@ -69,17 +69,15 @@ class antrianCrontroller extends Controller
 
         Antrian::create($validateData);
 
-        if ($validateData['isPriority']) {
-            return redirect('/antrianPrioritas')->with('succes', 'Antrian telah dibuat');
-        } else {
-            return redirect('/antrianUmum')->with('succes', 'Antrian telah dibuat');
-        }
+        $redirectRoute = $validateData['isPriority'] ? '/antrianPrioritas' : '/antrianUmum';
+
+        return redirect($redirectRoute)->with('succes', 'Antrian telah dibuat');
     }
 
     public function loketUmum()
     {
 
-        $antrian = Antrian::where('status', 'inComplete' )
+        $antrian = Antrian::where('status', 'inComplete')
             ->where('isPriority', false)
             ->first();
 
@@ -90,7 +88,7 @@ class antrianCrontroller extends Controller
 
     public function loketPrioritas()
     {
-        $antrian = Antrian::where('status', 'inComplete' )
+        $antrian = Antrian::where('status', 'inComplete')
             ->where('isPriority', true)
             ->first();
 
@@ -101,10 +99,11 @@ class antrianCrontroller extends Controller
 
 
 
-    public function selesai(Antrian $antrian){
-       $antrian->status = 'completed';
-       $antrian->save();
+    public function selesai(Antrian $antrian)
+    {
+        $antrian->status = 'completed';
+        $antrian->save();
 
-       return back()->with('succes', 'antrian selesai');
+        return back()->with('succes', 'antrian selesai');
     }
 }
