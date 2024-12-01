@@ -79,7 +79,7 @@ class antrianCrontroller extends Controller
     public function loketUmum()
     {
 
-        $antrian = Antrian::where('isFinish', false )
+        $antrian = Antrian::where('status', 'inComplete' )
             ->where('isPriority', false)
             ->first();
 
@@ -90,7 +90,7 @@ class antrianCrontroller extends Controller
 
     public function loketPrioritas()
     {
-        $antrian = Antrian::where('isFinish', false )
+        $antrian = Antrian::where('status', 'inComplete' )
             ->where('isPriority', true)
             ->first();
 
@@ -102,7 +102,7 @@ class antrianCrontroller extends Controller
 
 
     public function selesai(Antrian $antrian){
-       $antrian->isFinish = true;
+       $antrian->status = 'completed';
        $antrian->save();
 
        return back()->with('succes', 'antrian selesai');

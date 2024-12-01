@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tanggal');
             $table->string('waktu');
             $table->boolean('isPriority');
-            $table->boolean('isFinish')->default(0);
+            $table->enum('status', ['completed', 'inComplete', 'unserved'])->default('inComplete');
             $table->timestamps();
         });
     }
