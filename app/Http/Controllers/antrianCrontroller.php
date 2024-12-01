@@ -25,11 +25,15 @@ class antrianCrontroller extends Controller
         }
 
         $newQueueNumber = 'B' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        $sisaAntrian = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
 
         return view('user.antrianUmum', [
             'antrian' => $newQueueNumber,
             'tanggal' => $date,
             'waktu' => $time,
+            'sisaAntrian' => $sisaAntrian,
         ]);
     }
 
@@ -49,10 +53,15 @@ class antrianCrontroller extends Controller
 
         $newQueueNumber = 'A' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 
+        $sisaAntrian = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
+
         return view('user.antrianPrioritas', [
             'antrian' => $newQueueNumber,
             'tanggal' => $date,
             'waktu' => $time,
+            'sisaAntrian' => $sisaAntrian,
         ]);
     }
 
@@ -81,8 +90,13 @@ class antrianCrontroller extends Controller
             ->where('isPriority', false)
             ->first();
 
+        $sisaAntrian = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
+
         return view('admin.loketSatu', [
             'antrian' => $antrian,
+            'sisaAntrian' => $sisaAntrian,
         ]);
     }
 
@@ -107,7 +121,8 @@ class antrianCrontroller extends Controller
         return back()->with('succes', 'antrian selesai');
     }
 
-    public function terlewat(Antrian $antrian){
+    public function terlewat(Antrian $antrian)
+    {
         $antrian->status = 'unserved';
         $antrian->save();
 
