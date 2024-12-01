@@ -33,33 +33,38 @@
 
                     {{-- Sisa Antrian --}}
                     <p class="text-3xl text-gray-700">Sisa Antrian: <span class="font-bold text-red-500">5</span></p>
-
-                    {{-- Tombol Aksi --}}
-                    <div class="flex justify-center space-x-2">
-                        {{-- Panggil --}}
-                        <button id="panggilBtn"
-                            class="bg-red-500 hover:bg-red-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
-                            <i class="fas fa-bullhorn"></i>
-                            <span class="text-xs md:text-sm lg:text-base">Panggil/Ulangi</span>
-                        </button>
-                        {{-- Selesai --}}
-                        <form action="/antrian/selesai/{{ $antrian->id ?? '' }}" method="POST">
-                            @csrf
-                            @method('put')
-                            <button id="selesaiBtn" type="submit"
-                                class="bg-red-500 hover:bg-red-600 y-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
-                                onclick="tandaiSelesai()">
-                                <i id="iconSelesai" class="fas fa-check-circle"></i>
-                                <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
+                    @if ($antrian)
+                        {{-- Tombol Aksi --}}
+                        <div class="flex justify-center space-x-2">
+                            {{-- Panggil --}}
+                            <button id="panggilBtn"
+                                class="bg-red-500 hover:bg-red-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
+                                <i class="fas fa-bullhorn"></i>
+                                <span class="text-xs md:text-sm lg:text-base">Panggil/Ulangi</span>
                             </button>
-                        </form>
-                        {{-- Lanjut --}}
-                        <button
-                            class="bg-red-500 hover:bg-red-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
-                            <span class="text-xs md:text-sm lg:text-base">Selanjutnya</span>
-                            <i class="fas fa-arrow-right mt-1"></i>
-                        </button>
-                    </div>
+                            {{-- Selesai --}}
+                            <form action="/antrian/selesai/{{ $antrian->id }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button id="selesaiBtn" type="submit"
+                                    class="bg-red-500 hover:bg-red-600 y-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
+                                    onclick="tandaiSelesai()">
+                                    <i id="iconSelesai" class="fas fa-check-circle"></i>
+                                    <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
+                                </button>
+                            </form>
+                            {{-- Lanjut --}}
+                            <form action="/antrian/terlewat/{{ $antrian->id }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit"
+                                    class="bg-red-500 hover:bg-red-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
+                                    <span class="text-xs md:text-sm lg:text-base">Selanjutnya</span>
+                                    <i class="fas fa-arrow-right mt-1"></i>
+                                </button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
             </div>
 

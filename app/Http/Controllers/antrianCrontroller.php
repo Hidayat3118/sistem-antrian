@@ -106,4 +106,11 @@ class antrianCrontroller extends Controller
 
         return back()->with('succes', 'antrian selesai');
     }
+
+    public function terlewat(Antrian $antrian){
+        $antrian->status = 'unserved';
+        $antrian->save();
+
+        return back()->with('succes', 'antrian terlewat');
+    }
 }

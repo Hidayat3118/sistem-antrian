@@ -50,3 +50,5 @@ Route::get('admin/profil', function () {
 });
 
 Route::put('antrian/selesai/{antrian}', [antrianCrontroller::class, 'selesai']);
+
+Route::put('antrian/terlewat/{antrian}', [antrianCrontroller::class, 'terlewat']);
