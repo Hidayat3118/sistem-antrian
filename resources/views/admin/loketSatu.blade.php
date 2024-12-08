@@ -79,15 +79,13 @@
                     const textSelesai = document.getElementById("textSelesai");
 
                     // Toggle ikon dan teks pada tombol
-                    if (icon <
-                        form action = "" >> Selesai.classList.contains("fa-check-circle")) {
+                    if (iconSelesai.classList.contains("fa-check-circle")) {
                         iconSelesai.classList.replace("fa-check-circle", "fa-check-double");
                         textSelesai.textContent = "Sudah Selesai";
                     } else {
                         iconSelesai.classList.replace("fa-check-double", "fa-check-circle");
                         textSelesai.textContent = "Selesai";
-                    } <
-                    /form
+                    }
                 }
             </script>
             {{-- Js Audio masih bug harus dua kali di pencet hanyar muncul suaranya --}}
