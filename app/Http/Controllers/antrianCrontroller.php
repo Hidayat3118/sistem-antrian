@@ -70,7 +70,7 @@ class antrianCrontroller extends Controller
 
         $validateData = $request->validate([
             'nomor_antrian' => 'required',
-            'no_telp' => 'required|numeric',
+            'no_telp' => 'nullable|numeric',
             'tanggal' => 'required',
             'waktu' => 'required',
             'isPriority' => 'required',

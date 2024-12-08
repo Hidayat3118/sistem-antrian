@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('antrians', function (Blueprint $table) {
             $table->id();
-            $table->string('no_telp');
+            $table->string('no_telp')->nullable();
             $table->string('nomor_antrian');
             $table->string('tanggal');
             $table->string('waktu');
