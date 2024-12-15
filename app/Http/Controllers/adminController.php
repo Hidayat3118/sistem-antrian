@@ -30,13 +30,13 @@ class adminController extends Controller
     }
 
     public function logout(Request $request){
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin/login');
+        return redirect()->intended('/admin/login');
     }
 
     public function update(Request $request, Admin $admin){

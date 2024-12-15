@@ -29,7 +29,7 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/login', [adminController::class, 'viewLogin'])->middleware('guest');
+Route::get('/admin/login', [adminController::class, 'viewLogin'])->name('login')->middleware('guest');
 
 Route::post('/admin/login', [adminController::class, 'login']);
 
