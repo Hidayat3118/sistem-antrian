@@ -42,12 +42,12 @@ class rekapAntrian extends Command
 
         $jumblahAntrianTdkDilayani = Antrian::whereDate('created_at', Carbon::today())
             ->where('status', 'unserved')
-            ->get();
+            ->count();
 
         Rekap::create([
             'tanggal' => Carbon::today(),
-            'jmlh_umum' => $jumblahAntrianUmum,
-            'jmlh_prioritas' => $jumblahAntrianPrioritas,
+            'jmblh_umum' => $jumblahAntrianUmum,
+            'jmblh_prioritas' => $jumblahAntrianPrioritas,
             'tdk_dilayani' => $jumblahAntrianTdkDilayani,
         ]);
 
