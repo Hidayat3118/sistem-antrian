@@ -23,6 +23,24 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('1234'),
         ]);
 
-        Antrian::factory()->count(50)->create();
+        for ($i = 1; $i < 10; $i++) {
+            Antrian::create([
+                'nomor_antrian' => 'B' . str_pad($i, 3, '0', STR_PAD_LEFT),
+                'isPriority' => false,
+                'tanggal' => '2024-11-20', // Tanggal acak
+                'waktu' => '08:10:01', // Waktu acak
+                'no_telp' => '087815338021', // Nomor telepon acak
+            ]);
+        }
+
+        for ($i = 1; $i < 10; $i++) {
+            Antrian::create([
+                'nomor_antrian' => 'A' . str_pad($i, 3, '0', STR_PAD_LEFT),
+                'isPriority' => true,
+                'tanggal' => '2024-11-20', // Tanggal acak
+                'waktu' => '08:10:01', // Waktu acak
+                'no_telp' => '087815338021', // Nomor telepon acak
+            ]);
+        }
     }
 }
