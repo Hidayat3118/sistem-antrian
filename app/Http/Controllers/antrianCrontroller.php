@@ -106,8 +106,13 @@ class antrianCrontroller extends Controller
             ->where('isPriority', true)
             ->first();
 
+        $sisaAntrian = Antrian::where('isPriority', true)
+            ->where('status', 'inComplete')
+            ->count();
+
         return view('admin.loketDua', [
             'antrian' => $antrian,
+            'sisaAntrian' => $sisaAntrian,
         ]);
     }
 

@@ -32,7 +32,7 @@
                     </div>
 
                     {{-- Sisa Antrian --}}
-                    <p class="text-3xl text-gray-700">Sisa Antrian: <span class="font-bold text-red-500">5</span></p>
+                    <p class="text-3xl text-gray-700">Sisa Antrian: <span class="font-bold text-red-500">{{ $sisaAntrian }}</span></p>
                     @if ($antrian)
                         {{-- Tombol Aksi --}}
                         <div class="flex justify-center space-x-2">
