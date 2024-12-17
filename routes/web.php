@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\antrianCrontroller;
+use App\Http\Controllers\rekapController;
 use Illuminate\Support\Facades\Route;
 
 // Routes User
@@ -41,9 +42,7 @@ Route::get('/admin/loketSatu', [antrianCrontroller::class, 'loketUmum']);
 
 Route::get('/admin/loketDua', [antrianCrontroller::class, 'loketPrioritas']);
 
-Route::get('admin/rekap', function () {
-    return view('admin/rekap');
-});
+Route::get('admin/rekap', [rekapController::class, 'index']);
 
 Route::get('admin/profil', function () {
     return view('admin.profil');

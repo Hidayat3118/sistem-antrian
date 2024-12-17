@@ -9,4 +9,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::command('rekap:antrian')->everyMinute();
+Schedule::command('rekap:antrian')->dailyAt('17:00');
