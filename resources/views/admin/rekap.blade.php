@@ -16,49 +16,48 @@
                     <h2 class="text-4xl font-semibold">Menu Rekap</h2>
                 </div>
 
-                <div class="flex items-center mt-16 container justify-center gap-8 p-4 ">
-
-                    <div class="flex items-center gap-4">
-                        <label for="tanggal" class="text-black font-semibold mb-1 flex rounded-lg">Cari Tanggal:</label>
-                        <input type="text" id="tanggal"
-                            class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
-                    </div>
-
-                    <div class="flex  items-center gap-4">
-                        <label for="bulan" class="text-black font-semibold mb-1">Pilih Bulan:</label>
-                        <select id="bulan"
-                            class="rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 
+                <form action="/admin/rekap" method="GET">
+                    <div class="flex items-center mt-16 container justify-center gap-8 p-4 ">
+                        <div class="flex items-center gap-4">
+                            <label for="tanggal" class="text-black font-semibold mb-1 flex rounded-lg">Cari
+                                Tanggal:</label>
+                            <input type="text" id="tanggal" name="tanggal"
+                                class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div class="flex  items-center gap-4">
+                            <label for="bulan" class="text-black font-semibold mb-1">Pilih Bulan:</label>
+                            <select id="bulan" name="bulan"
+                                class="rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 
                         focus:ring focus:ring-indigo-200 bg-white text-gray-900 transition duration-150 ease-in-out hover:bg-indigo-50 px-8 py-2">
-                            <option value="">Pilih Bulan</option>
-                            <option value="januari">Januari</option>
-                            <option value="februari">Februari</option>
-                            <option value="maret">Maret</option>
-                            <option value="april">April</option>
-                            <option value="mei">Mei</option>
-                            <option value="juni">Juni</option>
-                            <option value="juli">Juli</option>
-                            <option value="agustus">Agustus</option>
-                            <option value="september">September</option>
-                            <option value="oktober">Oktober</option>
-                            <option value="november">November</option>
-                            <option value="desember">Desember</option>
-                        </select>
+                                <option value="">Pilih Bulan</option>
+                                <option value="1">Januari</option>
+                                <option value="2">Februari</option>
+                                <option value="3">Maret</option>
+                                <option value="4">April</option>
+                                <option value="5">Mei</option>
+                                <option value="6">Juni</option>
+                                <option value="7">Juli</option>
+                                <option value="8">Agustus</option>
+                                <option value="9">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <label for="tahun" class="text-black font-semibold mb-1">Cari Tahun:</label>
+                            <input type="text" id="tahun" name="tahun"
+                                class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
+                        </div>
+
+                        <button type="submit"
+                            class="bg-green-500 px-8 py-2 font-semibold rounded-lg text-white flex justify-center items-center gap-3 text-xl transform transition hover:scale-110 duration-300">
+                            <span>Cari</span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
-
-                    <div class="flex items-center gap-4">
-                        <label for="tahun" class="text-black font-semibold mb-1">Cari Tahun:</label>
-                        <input type="text" id="tahun"
-                            class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
-                    </div>
-
-                    <button
-                        class="bg-green-500 px-8 py-2 font-semibold rounded-lg text-white flex justify-center items-center gap-3 text-xl transform transition hover:scale-110 duration-300">
-                        <span>Cari</span>
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-                </div>
-
+                </form>
 
                 {{-- Kotak Border --}}
 

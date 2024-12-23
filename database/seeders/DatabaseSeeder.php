@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Admin::create([
-            'nama' => 'Abu Husein',
-            'username' => 'Husein',
-            'password' => Hash::make('1234'),
-        ]);
+        // Admin::create([
+        //     'nama' => 'Abu Husein',
+        //     'username' => 'Husein',
+        //     'password' => Hash::make('1234'),
+        // ]);
 
         for ($i = 1; $i < 10; $i++) {
             Antrian::create([
