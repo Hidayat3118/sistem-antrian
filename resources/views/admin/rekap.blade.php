@@ -21,7 +21,7 @@
                         <div class="flex items-center gap-4">
                             <label for="tanggal" class="text-black font-semibold mb-1 flex rounded-lg">Cari
                                 Tanggal:</label>
-                            <input type="text" id="tanggal" name="tanggal"
+                            <input type="text" id="tanggal" name="tanggal" value="{{ request('tanggal') }}"
                                 class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
                         </div>
                         <div class="flex  items-center gap-4">
@@ -30,24 +30,24 @@
                                 class="rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 
                         focus:ring focus:ring-indigo-200 bg-white text-gray-900 transition duration-150 ease-in-out hover:bg-indigo-50 px-8 py-2">
                                 <option value="">Pilih Bulan</option>
-                                <option value="1">Januari</option>
-                                <option value="2">Februari</option>
-                                <option value="3">Maret</option>
-                                <option value="4">April</option>
-                                <option value="5">Mei</option>
-                                <option value="6">Juni</option>
-                                <option value="7">Juli</option>
-                                <option value="8">Agustus</option>
-                                <option value="9">September</option>
-                                <option value="10">Oktober</option>
-                                <option value="11">November</option>
-                                <option value="12">Desember</option>
+                                <option value="1" {{ request('bulan') == 1 ? 'selected' : '' }}>Januari</option>
+                                <option value="2" {{ request('bulan') == 2 ? 'selected' : '' }}>Februari</option>
+                                <option value="3" {{ request('bulan') == 3 ? 'selected' : '' }}>Maret</option>
+                                <option value="4" {{ request('bulan') == 4 ? 'selected' : '' }}>April</option>
+                                <option value="5" {{ request('bulan') == 5 ? 'selected' : '' }}>Mei</option>
+                                <option value="6" {{ request('bulan') == 6 ? 'selected' : '' }}>Juni</option>
+                                <option value="7" {{ request('bulan') == 7 ? 'selected' : '' }}>Juli</option>
+                                <option value="8" {{ request('bulan') == 8 ? 'selected' : '' }}>Agustus</option>
+                                <option value="9" {{ request('bulan') == 9 ? 'selected' : '' }}>September</option>
+                                <option value="10" {{ request('bulan') == 10 ? 'selected' : '' }}>Oktober</option>
+                                <option value="11" {{ request('bulan') == 11 ? 'selected' : '' }}>November</option>
+                                <option value="12" {{ request('bulan') == 12 ? 'selected' : '' }}>Desember</option>
                             </select>
                         </div>
 
                         <div class="flex items-center gap-4">
                             <label for="tahun" class="text-black font-semibold mb-1">Cari Tahun:</label>
-                            <input type="text" id="tahun" name="tahun"
+                            <input type="text" id="tahun" name="tahun" value="{{ request('tahun') }}"
                                 class="text-black px-8 py-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
                         </div>
 
