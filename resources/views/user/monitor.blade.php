@@ -18,11 +18,11 @@
                         <div class="flex bg-blue-100 gap-4 p-6 rounded-md mt-8 justify-center">
                             <h2 class="text-gray-700 text-2xl">
                                 <i class="fas fa-user text-green-500 mr-3"></i>Umum(A): 
-                                <span class="font-semibold text-red-500">5</span>
+                                <span class="font-semibold text-red-500">{{ $sisaUmum }}</span>
                             </h2>
                             <h2 class="text-gray-700 text-2xl">
                                 <i class="fas fa-user-shield text-orange-500 mr-3"></i>Prioritas(B): 
-                                <span class="font-semibold text-red-500">5</span>
+                                <span class="font-semibold text-red-500">{{ $sisaPrioritas }}</span>
                             </h2>
                         </div>
                     </div>

@@ -18,9 +18,7 @@ Route::get('/antrianPrioritas', [antrianCrontroller::class, 'makeAntrianPriorita
 Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 
 
-Route::get('/user/monitor', function () {
-    return view('user.monitor');
-});
+Route::get('/user/monitor', [antrianCrontroller::class, 'monitor']);
 
 
 

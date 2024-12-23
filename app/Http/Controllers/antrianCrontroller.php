@@ -133,4 +133,19 @@ class antrianCrontroller extends Controller
 
         return back()->with('succes', 'antrian terlewat');
     }
+
+    public function monitor(){
+        $sisaAntrianUmum = Antrian::where('isPriority', false)
+        ->where('status', 'inComplete')
+        ->count();
+
+        $sisaAntrianPrioritas = Antrian::where('isPriority', true)
+        ->where('status', 'inComplete')
+        ->count();
+
+        return view('user.monitor', [
+            'sisaUmum' => $sisaAntrianUmum,
+            'sisaPrioritas' => $sisaAntrianPrioritas,
+        ]);
+    }
 }
