@@ -10,7 +10,7 @@
         <ul class="mt-6 space-y-6">
             <li>
                 <a href="/admin/profil"
-                    class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
+                    class="flex items-center p-4 rounded-lg {{ $active === 'profile' ? 'bg-sky-600' : '' }} hover:bg-sky-600 transition duration-300 ease-in-out">
                     <i class="fas fa-user text-2xl mr-4 text-white"></i>
                     <span class="text-xl font-semibold text-white">Profil</span>
                 </a>
@@ -26,16 +26,16 @@
                     </button>
 
                     <!-- Dropdown Menu -->
-                    <ul id="dropdown" class="hidden mt-2  overflow-hidden font-bold text-xl ">
+                    <ul id="dropdown" class="{{ in_array($active, ['umum','prioritas']) ? '' : 'hidden' }} mt-2  overflow-hidden font-bold text-xl ">
                         <li>
                             <a href="/admin/loketSatu"
-                                class="block px-6 py-3 text-white hover:bg-sky-600 transition duration-300 rounded-lg">
+                                class="block px-6 py-3 text-white {{ $active === 'umum' ? 'bg-sky-600' : '' }} hover:bg-sky-600 transition duration-300 rounded-lg">
                                 Loket 1 (Umum)
                             </a>
                         </li>
                         <li>
                             <a href="/admin/loketDua"
-                                class="block px-6 py-3 text-white hover:bg-sky-700 transition duration-300 rounded-lg">
+                                class="block px-6 py-3 text-white {{ $active === 'prioritas' ? 'bg-sky-600' : '' }} hover:bg-sky-700 transition duration-300 rounded-lg">
                                 Loket 2 (Prioritas)
                             </a>
                         </li>
@@ -44,7 +44,7 @@
             </li>
             <li>
                 <a href="/admin/rekap"
-                    class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
+                    class="flex items-center p-4 rounded-lg {{ $active === 'rekap' ? 'bg-sky-600' : '' }} hover:bg-sky-600 transition duration-300 ease-in-out">
                     <i class="fas fa-file-alt text-2xl mr-4 text-white"></i>
                     <span class="text-xl font-semibold text-white">Rekap</span>
                 </a>

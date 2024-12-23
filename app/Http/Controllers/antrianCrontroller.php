@@ -100,6 +100,7 @@ class antrianCrontroller extends Controller
             'antrian' => $antrian,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Admin | Loket Umum',
+            'active' => 'umum',
         ]);
     }
 
@@ -117,6 +118,7 @@ class antrianCrontroller extends Controller
             'antrian' => $antrian,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Admin | Loket Prioritas',
+            'active' => 'prioritas',
         ]);
     }
 

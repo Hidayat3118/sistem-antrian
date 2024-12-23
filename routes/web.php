@@ -47,6 +47,7 @@ Route::get('admin/rekap', [rekapController::class, 'index']);
 Route::get('admin/profil', function () {
     return view('admin.profil', [
         'title' => 'Admin | Profile',
+        'active' => 'profile',
     ]);
 });
 
