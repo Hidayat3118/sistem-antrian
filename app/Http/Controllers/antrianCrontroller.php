@@ -34,6 +34,7 @@ class antrianCrontroller extends Controller
             'tanggal' => $date,
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
+            'title' => 'Puskesmas | Antrian Umum',
         ]);
     }
 
@@ -62,6 +63,7 @@ class antrianCrontroller extends Controller
             'tanggal' => $date,
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
+            'title' => 'Puskesmas | Antrian Prioritas'
         ]);
     }
 
@@ -97,6 +99,7 @@ class antrianCrontroller extends Controller
         return view('admin.loketSatu', [
             'antrian' => $antrian,
             'sisaAntrian' => $sisaAntrian,
+            'title' => 'Admin | Loket Umum',
         ]);
     }
 
@@ -113,6 +116,7 @@ class antrianCrontroller extends Controller
         return view('admin.loketDua', [
             'antrian' => $antrian,
             'sisaAntrian' => $sisaAntrian,
+            'title' => 'Admin | Loket Prioritas',
         ]);
     }
 
@@ -146,6 +150,7 @@ class antrianCrontroller extends Controller
         return view('user.monitor', [
             'sisaUmum' => $sisaAntrianUmum,
             'sisaPrioritas' => $sisaAntrianPrioritas,
+            'title' => 'Puskesmas | Monitor',
         ]);
     }
 }

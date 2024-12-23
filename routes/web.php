@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 // Routes User
 Route::get('/', function () {
-return view('user.home');
+    return view('user.home', [
+        'title' => 'Puskesmas | Antrian',
+    ]);
 });
 
 
@@ -43,7 +45,9 @@ Route::get('/admin/loketDua', [antrianCrontroller::class, 'loketPrioritas']);
 Route::get('admin/rekap', [rekapController::class, 'index']);
 
 Route::get('admin/profil', function () {
-    return view('admin.profil');
+    return view('admin.profil', [
+        'title' => 'Admin | Profile',
+    ]);
 });
 
 Route::put('antrian/selesai/{antrian}', [antrianCrontroller::class, 'selesai']);

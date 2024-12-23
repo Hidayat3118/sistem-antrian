@@ -26,6 +26,7 @@ class rekapController extends Controller
 
         return view('admin/rekap', [
             'rekaps' => $rekaps,
+            'title' => 'Admin | Rekap',
         ]);
     }
 }

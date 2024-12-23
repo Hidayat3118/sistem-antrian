@@ -11,7 +11,9 @@ class adminController extends Controller
 {
 
     public function viewLogin(){
-        return view('admin.login');
+        return view('admin.login', [
+            'title' => 'Admin | Login'
+        ]);
     }
     public function login(Request $request) {
         $validateData = $request->validate([
