@@ -80,9 +80,9 @@ class antrianCrontroller extends Controller
 
         Antrian::create($validateData);
 
-        $redirectRoute = $validateData['isPriority'] ? '/antrianPrioritas' : '/antrianUmum';
+        
 
-        return redirect($redirectRoute)->with('succes', 'Antrian telah dibuat');
+        return redirect('/')->with('succes', 'Antrian telah dibuat');
     }
 
     public function loketUmum()
