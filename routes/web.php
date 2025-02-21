@@ -23,7 +23,10 @@ Route::get('/user/monitor', [antrianCrontroller::class, 'monitor']);
 
 
 Route::get('/user/claster', function () {
-    return view('user.claster');
+    
+    return view('user.claster', [
+        'title' => 'Claster'
+    ]);
 });
 
 
