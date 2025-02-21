@@ -19,10 +19,12 @@ Route::get('/antrianPrioritas', [antrianCrontroller::class, 'makeAntrianPriorita
 
 Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 
-
 Route::get('/user/monitor', [antrianCrontroller::class, 'monitor']);
 
 
+Route::get('/user/claster', function () {
+    return view('user.claster');
+});
 
 
 // Routes Admin
