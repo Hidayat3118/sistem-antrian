@@ -4,7 +4,7 @@
     {{-- Header Include --}}
     @include('komponen.header')
 
-    <main class=" flex my-auto mt-36">
+    <main class=" relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center"  style="background-image: url('../img/kuin.jpg');">
 
         <div class="bg-gradient-to-r bg-sky-500 rounded-lg shadow-lg p-8 w-[400px] mx-auto ">
 

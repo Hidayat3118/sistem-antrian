@@ -5,7 +5,7 @@
     @include('komponen.header')
 
 
-    <main class=" container mx-auto">
+    <main class=" container mx-auto flex my-auto  justify-center items-center min-h-screen">
         <div class="bg-gradient-to-r from-blue-100 to-indigo-100 p-4 border border-gray-300  rounded-xl mx-auto shadow-2xl mt-12 w-full">
             <div class="flex flex-wrap  p-10 justify-around ">
                 

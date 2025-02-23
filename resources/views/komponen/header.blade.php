@@ -1,5 +1,5 @@
 {{-- Navbar atau Header --}}
-<header class="bg-gradient-to-r bg-sky-500 shadow-xl p-6 ">
+<header class="bg-gradient-to-r bg-sky-500 shadow-xl p-6 fixed top-0 w-full z-20">
     <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center space-x-4">
             <img src="../img/sadik.png" alt="Logo Puskesmas" class="w-24 h-24 rounded-full shadow-lg border-4 border-white transform transition duration-300 hover:scale-105">

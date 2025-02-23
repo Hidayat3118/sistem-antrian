@@ -4,7 +4,7 @@
     {{-- Header Include --}}
     @include('komponen.header')
 
-    <main class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen py-10">
+    <main class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen py-10 mt-32">
         {{-- Tanggal --}}
         <div class="flex justify-end container mx-auto">
             <div class="bg-white p-3 rounded-lg shadow-md flex items-center space-x-3 text-gray-600">

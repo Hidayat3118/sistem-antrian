@@ -4,21 +4,25 @@
     {{-- Header Include --}}
     @include('komponen.header')
 
-    <div class="">
+    <div class="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center" 
+        style="background-image: url('../img/dokter.jpg');">
+        
+        {{-- Overlay untuk membuat teks lebih terbaca --}}
+        <div class="absolute inset-0 bg-blue-900 bg-opacity-50"></div>
 
         {{-- Judul --}}
-        <div class="text-center mt-40">
-            <div class="bg-white px-6 py-4 inline-block rounded-lg shadow-md border border-slate-300">
+        <div class="text-center relative z-10 mt-20">
+            <div class="bg-white  px-6 py-4 inline-block rounded-lg shadow-lg border border-slate-300 bg-opacity-75">
                 <h2 class="text-3xl font-semibold text-gray-700 flex items-center justify-center">
                     <i class="fas fa-list-alt text-blue-600 mr-2"></i> Silahkan Pilih Cluster Anda
                 </h2>
             </div>
-            <p class="text-lg text-gray-500 mt-2">Kami siap membantu Anda dengan layanan terbaik.</p>
+            <p class="text-lg text-gray-200 mt-2">Kami siap membantu Anda dengan layanan terbaik.</p>
         </div>
 
         {{-- Kotak Pilihan Cluster --}}
-        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl mx-auto text-center mt-12">
-            <div class="flex justify-center gap-4">
+        <div class="bg-white p-8  rounded-xl shadow-xl w-full max-w-4xl mx-auto text-center mt-12 relative z-10 bg-opacity-75">
+            <div class="flex justify-center gap-6">
                 {{-- Tombol Cluster 2 (Anak-anak) --}}
                 <button
                     class="flex items-center gap-4 px-8 py-4 text-blue-600 border-4 border-blue-600 rounded-xl shadow-lg  hover:bg-blue-600 hover:text-white">
