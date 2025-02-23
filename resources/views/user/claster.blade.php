@@ -3,35 +3,46 @@
 @section('content')
     {{-- Header Include --}}
     @include('komponen.header')
+
     <div class="">
-    
-        <div class="flex items-center gap-3 mb-6 text-3xl font-bold text-gray-700 justify-center mt-12">
-            <div class="border-2 border-gray-500 px-4 py-2 rounded-lg">
-                <i class="fa-solid fa-list-check text-blue-500"></i>
-                <span>Pilih Cluster Layanan</span>
+
+        {{-- Judul --}}
+        <div class="text-center mt-40">
+            <div class="bg-white px-6 py-4 inline-block rounded-lg shadow-md border border-slate-300">
+                <h2 class="text-3xl font-semibold text-gray-700 flex items-center justify-center">
+                    <i class="fas fa-list-alt text-blue-600 mr-2"></i> Silahkan Pilih Cluster Anda
+                </h2>
             </div>
+            <p class="text-lg text-gray-500 mt-2">Kami siap membantu Anda dengan layanan terbaik.</p>
         </div>
-        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl mx-auto text-center mt-44">
+
+        {{-- Kotak Pilihan Cluster --}}
+        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl mx-auto text-center mt-12">
             <div class="flex justify-center gap-4">
+                {{-- Tombol Cluster 2 (Anak-anak) --}}
                 <button
-                    class="flex items-center gap-2 px-8 py-4 bg-blue-500 text-white rounded-lg border-2 border-blue-700 hover:bg-blue-600 transition text-lg">
-                    <span class="w-10 h-10 flex items-center justify-center bg-white text-blue-500 rounded-full border border-blue-700">
+                    class="flex items-center gap-4 px-8 py-4 text-blue-600 border-4 border-blue-600 rounded-xl shadow-lg  hover:bg-blue-600 hover:text-white">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white">
                         <i class="fa-solid fa-child"></i>
-                    </span>
+                    </div>
                     Cluster 2 (Anak-anak)
                 </button>
+
+                {{-- Tombol Cluster 3 (Orang Tua) --}}
                 <button
-                    class="flex items-center gap-2 px-8 py-4 bg-green-500 text-white rounded-lg border-2 border-green-700 hover:bg-green-600 transition text-lg">
-                    <span class="w-10 h-10 flex items-center justify-center bg-white text-green-500 rounded-full border border-green-700">
+                    class="flex items-center gap-4 px-8 py-4 text-green-600 border-4 border-green-600 rounded-xl shadow-lg  hover:bg-green-600 hover:text-white">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-600 text-white">
                         <i class="fa-solid fa-user"></i>
-                    </span>
+                    </div>
                     Cluster 3 (Orang Tua)
                 </button>
+
+                {{-- Tombol Cluster Gigi --}}
                 <button
-                    class="flex items-center gap-2 px-8 py-4 bg-red-500 text-white rounded-lg border-2 border-red-700 hover:bg-red-600 transition text-lg">
-                    <span class="w-10 h-10 flex items-center justify-center bg-white text-red-500 rounded-full border border-red-700">
+                    class="flex items-center gap-4 px-8 py-4 text-red-600 border-4 border-red-600 rounded-xl shadow-lg  hover:bg-red-600 hover:text-white">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-red-600 text-white">
                         <i class="fa-solid fa-tooth"></i>
-                    </span>
+                    </div>
                     Cluster Gigi
                 </button>
             </div>
