@@ -32,7 +32,7 @@
         {{-- Tombol Pilihan --}}
         <div class="flex gap-16 mt-10 bg-white opacity-85">
             {{-- Tombol Umum --}}
-            <a href="/antrianUmum">
+            <a href="/umum/cluster">
                 <button
                     class="text-4xl font-semibold text-white bg-green-500 border-4 border-white py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 transform hover:bg-green-600">
                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white mr-3 text-green-500">
@@ -44,7 +44,7 @@
 
             {{-- Tombol Prioritas --}}
             <div class="flex flex-col items-center">
-                <a href="/antrianPrioritas">
+                <a href="/prioritas/cluster">
                     <button
                         class="text-4xl font-semibold text-white bg-red-500 border-4 border-white py-5 px-14 rounded-xl shadow-lg flex items-center justify-center h-20 hover:bg-red-600">
                         <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white mr-3 text-red-500  ">

@@ -21,7 +21,7 @@
             <div class="container mx-auto flex justify-center mt-16">
                 <div class="bg-white rounded-xl shadow-xl p-8 max-w-lg w-full border-2 border-slate-300">
 
-                    <h3 class="text-3xl font-bold text-red-500 mb-4 text-center ">Antrian Prioritas</h3>
+                    <h3 class="text-3xl font-bold text-red-500 mb-4 text-center ">Prioritas</h3>
                     <div class="text-center">
                         <h2 class="text-4xl font-extrabold text-blue-800">No Antrian Anda</h2>
                         <h1

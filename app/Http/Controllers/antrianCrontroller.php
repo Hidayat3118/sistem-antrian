@@ -10,7 +10,7 @@ class antrianCrontroller extends Controller
 {
     //
 
-    public function makeAntrianUmum()
+    public function makeAntrianUmum($cluster)
     {
         $date = Carbon::now()->translatedFormat('l, d F Y');
         $time = Carbon::now()->translatedFormat('H:i');
@@ -35,10 +35,11 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Puskesmas | Antrian Umum',
+            'cluster' => $cluster
         ]);
     }
 
-    public function makeAntrianPrioritas()
+    public function makeAntrianPrioritas($cluster)
     {
         $date = Carbon::now()->translatedFormat('l, d F Y');
         $time = Carbon::now()->translatedFormat('H:i');
@@ -63,7 +64,8 @@ class antrianCrontroller extends Controller
             'tanggal' => $date,
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
-            'title' => 'Puskesmas | Antrian Prioritas'
+            'title' => 'Puskesmas | Antrian Prioritas',
+            'cluster' => $cluster,
         ]);
     }
 
@@ -153,6 +155,13 @@ class antrianCrontroller extends Controller
             'sisaUmum' => $sisaAntrianUmum,
             'sisaPrioritas' => $sisaAntrianPrioritas,
             'title' => 'Puskesmas | Monitor',
+        ]);
+    }
+
+    public function cluster($jenis){
+        return view('user.claster', [
+            'title' => 'Cluster',
+            'jenis' => $jenis,
         ]);
     }
 }

@@ -13,9 +13,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/antrianUmum', [antrianCrontroller::class, 'makeAntrianUmum'])->name('umum');
+Route::get('/{jenis}/cluster', [antrianCrontroller::class, 'cluster'])->name('cluster');
 
-Route::get('/antrianPrioritas', [antrianCrontroller::class, 'makeAntrianPrioritas'])->name('prioritas');
+Route::get('/antrian/umum/{cluster}', [antrianCrontroller::class, 'makeAntrianUmum']);
+
+Route::get('/antrian/prioritas/{cluster}', [antrianCrontroller::class, 'makeAntrianPrioritas']);
 
 Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 
