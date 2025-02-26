@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tanggal');
             $table->string('waktu');
             $table->boolean('isPriority');
+            $table->enum('cluster', ['anak', 'ortu', 'gigi']);
             $table->enum('status', ['completed', 'inComplete', 'unserved'])->default('inComplete');
             $table->timestamps();
         });
