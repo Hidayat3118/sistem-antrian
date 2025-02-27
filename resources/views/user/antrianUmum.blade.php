@@ -24,7 +24,7 @@
             <div class="container mx-auto flex justify-center mt-16">
                 <div class="bg-white rounded-xl shadow-xl p-8 max-w-lg w-full border-2 border-slate-300">
 
-                    <h3 class="text-3xl font-bold text-green-500 mb-4 text-center ">Umum</h3>
+                    <h3 class="text-3xl font-bold text-green-500 mb-4 text-center ">Umum {{ $cluster }}</h3>
                     <div class="text-center">
                         <h2 class="text-4xl font-extrabold text-blue-800">No Antrian Anda</h2>
                         <h1
@@ -47,7 +47,7 @@
                                 class="w-56 border-2 border-slate-400 rounded-lg px-4 py-2 text-gray-700 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-400 placeholder-gray-400 shadow-sm"
                                 placeholder="Opsional">
                         </div>
-                    {{-- Yang hanyar ku tambahi --}}
+                        {{-- Yang hanyar ku tambahi --}}
                         <div class="flex justify-between items-center">
                             <label for="catatan" class="text-lg font-semibold text-gray-700">Catatan :</label>
                             <input type="text" id="catatan" name="catatan"
@@ -55,8 +55,8 @@
                                 placeholder="Opsional">
                         </div>
                     </div>
-                    
-                     
+
+
                     <div class="flex mt-10 justify-center ">
                         <button onclick="showPrintPreview()" type="button"
                             class="text-2xl font-semibold text-white bg-red-500 hover:bg-red-600 py-3 px-8 rounded-lg shadow-lg flex items-center justify-center w-full mx-12">
@@ -89,13 +89,13 @@
 
                                 <h5 class="mt-6 text-xl font-medium text-gray-800">Sisa Antrian: <span
                                         class="text-red-500 font-semibold">{{ $sisaAntrian }}</span></h5>
-                                {{-- Ini yang hanyar di tambahi claster wan catatan--}}
-                                <h5 class="mt-4 text-xl font-medium text-gray-800">Claster: 2,3 atau Gigi</h5>
-                                <h5 class="mt-4 text-xl font-medium text-gray-800">Catatan:</h5>
-                                <h5 class="mt-2 text-md font-medium text-gray-500 text-justify px-10 font-serif">Lorem ipsum dolor sit
-                                    amet, consectetur
-                                    adipisicing elit. Officia sed vitae doloribus? Minima ab esse hic eum quaerat, aperiam
-                                    provident laborum.</h5>
+                                {{-- Ini yang hanyar di tambahi claster wan catatan --}}
+                                <h5 class="mt-4 text-xl font-medium text-gray-800">Claster: {{ $cluster }}</h5>
+                                <div id="areaCetak" class="hidden">
+                                    <h5 class="mt-4 text-xl font-medium text-gray-800">Catatan:</h5>
+                                    <h5 id="teksCetak" class="mt-2 text-md font-medium text-gray-500 text-justify px-10"></h5>
+                                </div>
+                                <h5 class="mt-2 text-md font-medium text-gray-500 text-justify px-10 font-serif"></h5>
                                 <p class="mt-6 text-gray-500">No Antrian berlaku sesuai tanggal yang diterbitkan</p>
                                 <p class="">{{ $tanggal . ' - ' . $waktu }}</p>
                             </div>

@@ -1,5 +1,15 @@
 function showPrintPreview() {
     document.getElementById("print-preview").classList.remove("hidden");
+    var catatan = document.getElementById("catatan").value.trim();
+    var areaCetak = document.getElementById("areaCetak");
+    var teksCetak = document.getElementById("teksCetak");
+
+    if (catatan !== "") {
+        teksCetak.innerText = catatan; // Masukkan catatan ke area cetak
+        areaCetak.classList.remove("hidden"); // Tampilkan area cetak
+    } else {
+        areaCetak.classList.add("hidden");
+    }
 }
 
 function hidePrintPreview() {

@@ -24,6 +24,14 @@ class antrianCrontroller extends Controller
             $newNumber = 1;
         }
 
+        $clusterTeks = [
+            'anak' => 'Anak-anak',
+            'ortu' => 'Orang tua',
+            'gigi' => 'Gigi'
+        ];
+
+        $clusterNama = $clusterTeks[$cluster];
+
         $newQueueNumber = 'B' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
         $sisaAntrian = Antrian::where('isPriority', false)
             ->where('status', 'inComplete')
@@ -35,7 +43,7 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Puskesmas | Antrian Umum',
-            'cluster' => $cluster
+            'cluster' => $clusterNama,
         ]);
     }
 
@@ -55,6 +63,14 @@ class antrianCrontroller extends Controller
 
         $newQueueNumber = 'A' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 
+        $clusterTeks = [
+            'anak' => 'Anak-anak',
+            'ortu' => 'Orang tua',
+            'gigi' => 'Gigi'
+        ];
+
+        $clusterNama = $clusterTeks[$cluster];
+    
         $sisaAntrian = Antrian::where('isPriority', false)
             ->where('status', 'inComplete')
             ->count();
@@ -65,7 +81,7 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Puskesmas | Antrian Prioritas',
-            'cluster' => $cluster,
+            'cluster' => $clusterNama,
         ]);
     }
 
