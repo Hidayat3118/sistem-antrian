@@ -31,7 +31,7 @@
                         <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white text-white">
                             <i class="fa-solid fa-child text-blue-500 text-2xl"></i>
                         </div>
-                        Cluster 2 (Anak-anak)
+                        Cluster 2 
                     </button>
                 </a>
 
@@ -42,7 +42,7 @@
                         <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white text-white">
                             <i class="fa-solid fa-user text-green-500"></i>
                         </div>
-                        Cluster 3 (Orang Tua)
+                        Cluster 3 
                     </button>
                 </a>
 
