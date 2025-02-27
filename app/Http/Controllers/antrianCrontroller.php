@@ -8,8 +8,6 @@ use App\Models\Antrian;
 
 class antrianCrontroller extends Controller
 {
-    //
-
     public function makeAntrianUmum($cluster)
     {
         $date = Carbon::now()->translatedFormat('l, d F Y');
@@ -43,7 +41,8 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Puskesmas | Antrian Umum',
-            'cluster' => $clusterNama,
+            'cluster' => $cluster,
+            'clusterNama' => $clusterNama,
         ]);
     }
 
@@ -70,7 +69,7 @@ class antrianCrontroller extends Controller
         ];
 
         $clusterNama = $clusterTeks[$cluster];
-    
+
         $sisaAntrian = Antrian::where('isPriority', false)
             ->where('status', 'inComplete')
             ->count();
@@ -81,24 +80,27 @@ class antrianCrontroller extends Controller
             'waktu' => $time,
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Puskesmas | Antrian Prioritas',
-            'cluster' => $clusterNama,
+            'cluster' => $cluster,
+            'clusterNama' => $clusterNama,
         ]);
     }
 
     public function simpanAntrian(Request $request)
     {
-
         $validateData = $request->validate([
             'nomor_antrian' => 'required',
             'no_telp' => 'nullable|numeric',
             'tanggal' => 'required',
             'waktu' => 'required',
+            'cluster' => 'required',
+            'catatan' => 'nullable',
             'isPriority' => 'required',
         ]);
 
+
         Antrian::create($validateData);
 
-        
+
 
         return redirect('/')->with('succes', 'Antrian telah dibuat');
     }
@@ -140,8 +142,6 @@ class antrianCrontroller extends Controller
         ]);
     }
 
-
-
     public function selesai(Antrian $antrian)
     {
         $antrian->status = 'completed';
@@ -158,14 +158,15 @@ class antrianCrontroller extends Controller
         return back()->with('succes', 'antrian terlewat');
     }
 
-    public function monitor(){
+    public function monitor()
+    {
         $sisaAntrianUmum = Antrian::where('isPriority', false)
-        ->where('status', 'inComplete')
-        ->count();
+            ->where('status', 'inComplete')
+            ->count();
 
         $sisaAntrianPrioritas = Antrian::where('isPriority', true)
-        ->where('status', 'inComplete')
-        ->count();
+            ->where('status', 'inComplete')
+            ->count();
 
         return view('user.monitor', [
             'sisaUmum' => $sisaAntrianUmum,
@@ -174,9 +175,10 @@ class antrianCrontroller extends Controller
         ]);
     }
 
-    public function cluster($jenis){
+    public function cluster($jenis)
+    {
         return view('user.claster', [
-            'title' => 'Cluster',
+            'title' => 'Puskesmas | Cluster',
             'jenis' => $jenis,
         ]);
     }

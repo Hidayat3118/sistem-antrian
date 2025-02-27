@@ -24,7 +24,7 @@
             <div class="container mx-auto flex justify-center mt-16">
                 <div class="bg-white rounded-xl shadow-xl p-8 max-w-lg w-full border-2 border-slate-300">
 
-                    <h3 class="text-3xl font-bold text-green-500 mb-4 text-center ">Umum {{ $cluster }}</h3>
+                    <h3 class="text-3xl font-bold text-green-500 mb-4 text-center ">Umum {{ $clusterNama }}</h3>
                     <div class="text-center">
                         <h2 class="text-4xl font-extrabold text-blue-800">No Antrian Anda</h2>
                         <h1
@@ -36,6 +36,7 @@
                         <input type="hidden" name="nomor_antrian" value="{{ $antrian }}">
                         <input type="hidden" name="tanggal" value="{{ $tanggal }}">
                         <input type="hidden" name="waktu" value="{{ $waktu }}">
+                        <input type="hidden" name="cluster" value="{{ $cluster }}">
                         <input type="hidden" name="isPriority" value="0">
                     </div>
                     {{-- deskripsi --}}
@@ -90,7 +91,7 @@
                                 <h5 class="mt-6 text-xl font-medium text-gray-800">Sisa Antrian: <span
                                         class="text-red-500 font-semibold">{{ $sisaAntrian }}</span></h5>
                                 {{-- Ini yang hanyar di tambahi claster wan catatan --}}
-                                <h5 class="mt-4 text-xl font-medium text-gray-800">Claster: {{ $cluster }}</h5>
+                                <h5 class="mt-4 text-xl font-medium text-gray-800">Claster: {{ $clusterNama }}</h5>
                                 <div id="areaCetak" class="hidden">
                                     <h5 class="mt-4 text-xl font-medium text-gray-800">Catatan:</h5>
                                     <h5 id="teksCetak" class="mt-2 text-md font-medium text-gray-500 text-justify px-10"></h5>

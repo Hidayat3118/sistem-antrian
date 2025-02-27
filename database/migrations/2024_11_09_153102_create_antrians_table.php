@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nomor_antrian');
             $table->string('tanggal');
             $table->string('waktu');
+            $table->string('catatan');
             $table->boolean('isPriority');
             $table->enum('cluster', ['anak', 'ortu', 'gigi']);
             $table->enum('status', ['completed', 'inComplete', 'unserved'])->default('inComplete');
