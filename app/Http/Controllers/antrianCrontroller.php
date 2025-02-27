@@ -23,8 +23,8 @@ class antrianCrontroller extends Controller
         }
 
         $clusterTeks = [
-            'anak' => 'Anak-anak',
-            'ortu' => 'Orang tua',
+            'anak' => 'Cluster 2',
+            'ortu' => 'Cluster 3',
             'gigi' => 'Gigi'
         ];
 
@@ -63,8 +63,8 @@ class antrianCrontroller extends Controller
         $newQueueNumber = 'A' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 
         $clusterTeks = [
-            'anak' => 'Anak-anak',
-            'ortu' => 'Orang tua',
+            'anak' => 'Cluster 2',
+            'ortu' => 'Cluster 3',
             'gigi' => 'Gigi'
         ];
 
