@@ -16,4 +16,8 @@ class Admin extends Authenticatable
         'username',
         'password',
     ];
+
+    public function antrian(){
+        return $this->hasMany(Antrian::class);
+    }
 }
