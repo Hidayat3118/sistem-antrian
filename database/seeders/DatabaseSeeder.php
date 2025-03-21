@@ -64,7 +64,6 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i < 10; $i++) {
             Antrian::create([
-                'admin_id' => rand(1,2),
                 'nomor_antrian' => 'B' . str_pad($i, 3, '0', STR_PAD_LEFT),
                 'isPriority' => false,
                 'tanggal' => '2024-11-20', // Tanggal acak
@@ -75,7 +74,6 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i < 10; $i++) {
             Antrian::create([
-                'admin_id' => rand(1,2),
                 'nomor_antrian' => 'A' . str_pad($i, 3, '0', STR_PAD_LEFT),
                 'isPriority' => true,
                 'tanggal' => '2024-11-20', // Tanggal acak

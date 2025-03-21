@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\Antrian;
+use Illuminate\Support\Facades\Auth;
 
 class antrianCrontroller extends Controller
 {
@@ -145,6 +146,7 @@ class antrianCrontroller extends Controller
     public function selesai(Antrian $antrian)
     {
         $antrian->status = 'completed';
+        $antrian->admin_id = Auth::guard('admin')->user()->id;
         $antrian->save();
 
         return back()->with('succes', 'antrian selesai');
@@ -153,6 +155,7 @@ class antrianCrontroller extends Controller
     public function terlewat(Antrian $antrian)
     {
         $antrian->status = 'unserved';
+        $antrian->admin_id = Auth::guard('admin')->user()->id;
         $antrian->save();
 
         return back()->with('succes', 'antrian terlewat');
