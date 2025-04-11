@@ -185,4 +185,33 @@ class antrianCrontroller extends Controller
             'jenis' => $jenis,
         ]);
     }
+
+    public function kirimNotif($nomor, $pesan){
+        $token = 'Gd3FBw9M5DQ6ZfPCSSGh';
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => "https:://api.fonnte.com/send",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CUTLOPT_POSTFIELDS => [
+                'target' => $nomor, 
+                'message' => $pesan,
+            ],
+
+            CURLOPT_HTTPHEADER => [
+                'Authorization: ' . $token,
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        return $response;
+    }
+
+    function panggilAntrian(){
+        
+    }
 }
