@@ -12,9 +12,11 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::orderBy('created_at', 'desc')->paginate(3); // Benar
-        return view('video.upload', compact('videos'), ['active' => 'upload']);
+        return view('video.upload', compact('videos'), [
+            'active' => 'upload',
+            'title' => 'Admin | Upload Video']);
     }
-    
+
 
 
     // Menyimpan video
@@ -50,10 +52,11 @@ class VideoController extends Controller
     {
         $video = Video::where('is_selected', true)->first();
         // INi yang ku ubah
-        return view('video.monitor', compact('video'),['active' => 'monitor']);
+        return view('video.monitor', compact('video'), ['active' => 'monitor']);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $video = Video::find($id);
         $video->delete();
         return redirect()->route('video.index');
