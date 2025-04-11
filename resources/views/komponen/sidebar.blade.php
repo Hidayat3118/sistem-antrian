@@ -51,7 +51,7 @@
             </li>
             <li>
                 <a href="/upload"
-                    class="flex items-center p-4 rounded-lg {{ $active === 'upload' ? 'bg-sky-600' : '' }} transition duration-300 ease-in-out">
+                    class="flex items-center p-4 rounded-lg {{ $active === 'upload' ? 'bg-sky-600' : '' }} hover:bg-sky-600 transition duration-300 ease-in-out">
                     <i class="fas fa-upload text-2xl mr-4 text-white"></i>
                     <span class="text-xl font-semibold text-white">Upload Video</span>
                 </a>
