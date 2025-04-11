@@ -1,4 +1,4 @@
-<main class="bg-gradient-to-b bg-sky-500 w-80 h-screen shadow-lg flex flex-col justify-between">
+<main class="bg-gradient-to-b bg-sky-500 w-80 h-screen shadow-lg flex flex-col justify-between ">
     <div class="p-4">
         <div class="flex justify-center py-4">
             <img src="../img/sadik.png" alt="Logo Puskesmas"
@@ -50,7 +50,15 @@
                 </a>
             </li>
             <li>
-                <a href="/user/monitor"
+                <a href="/upload"
+                    class="flex items-center p-4 rounded-lg {{ $active === 'upload' ? 'bg-sky-600' : '' }} transition duration-300 ease-in-out">
+                    <i class="fas fa-upload text-2xl mr-4 text-white"></i>
+                    <span class="text-xl font-semibold text-white">Upload Video</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/monitor"
                     class="flex items-center p-4 rounded-lg hover:bg-sky-600 transition duration-300 ease-in-out">
                     <i class="fas fa-tv text-2xl mr-4 text-white"></i>
                     <span class="text-xl font-semibold text-white">Monitor</span>

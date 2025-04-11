@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\antrianCrontroller;
-use App\Http\Controllers\rekapController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\rekapController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\antrianCrontroller;
 
 // Routes User
 Route::get('/', function () {
@@ -60,4 +61,19 @@ Route::get('admin/profil', function () {
 
 Route::put('antrian/selesai/{antrian}', [antrianCrontroller::class, 'selesai'])->middleware('admin');
 
-Route::put('antrian/terlewat/{antrian}', [antrianCrontroller::class, 'terlewat'])->middleware('admin');
+Route::put('antrian/terlewat/{antrian}', [antrianCrontroller::class, 'terlewat']);
+
+
+Route::get('/admin/upload', function () {
+    return view('admin.upload');
+});
+
+
+
+// vedio
+
+Route::get('/upload', [VideoController::class, 'index'])->name('video.index');
+Route::post('/upload', [VideoController::class, 'store'])->name('video.store');
+Route::put('/select/{id}', [VideoController::class, 'select'])->name('video.select');
+Route::get('/monitor', [VideoController::class, 'monitor'])->name('video.monitor');
+Route::delete('delete/{id}', [VideoController::class, 'delete'])->name('video.delete');

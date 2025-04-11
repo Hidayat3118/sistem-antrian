@@ -132,7 +132,7 @@
 
                             speechSynthesis.speak(ucapan);
                         } else {
-                            console.error("Suara belum terdaftar, silakan coba lagi."); +
+                            console.error("Suara belum terdaftar, silakan coba lagi.");
                         }
                     } else {
                         alert("Browser ini tidak mendukung fitur suara panggilan otomatis.");
