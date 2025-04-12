@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
                 'isPriority' => false,
                 'tanggal' => '2024-11-20', // Tanggal acak
                 'waktu' => '08:10:01', // Waktu acak
-                'no_telp' => '087815338021', // Nomor telepon acak
+                'no_telp' => '083141636743', // Nomor telepon acak
             ]);
         }
 
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
                 'isPriority' => true,
                 'tanggal' => '2024-11-20', // Tanggal acak
                 'waktu' => '08:10:01', // Waktu acak
-                'no_telp' => '087815338021', // Nomor telepon acak
+                'no_telp' => '083141636743', // Nomor telepon acak
             ]);
         }
     }

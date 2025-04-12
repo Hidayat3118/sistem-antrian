@@ -149,6 +149,13 @@ class antrianCrontroller extends Controller
         $antrian->admin_id = Auth::guard('admin')->user()->id;
         $antrian->save();
 
+        $panggil = Antrian::where('id', $antrian->id + 2)
+            ->first();
+
+        if ($panggil->no_telp) {
+            $this->kirimNotif($panggil->no_telp, 'Antrian anda sudah dekat, silahkan menuju loket');
+        }
+
         return back()->with('succes', 'antrian selesai');
     }
 
@@ -157,6 +164,13 @@ class antrianCrontroller extends Controller
         $antrian->status = 'unserved';
         $antrian->admin_id = Auth::guard('admin')->user()->id;
         $antrian->save();
+
+        $panggil = Antrian::where('id', $antrian->id + 2)
+            ->first();
+
+        if ($panggil->no_telp) {
+            $this->kirimNotif($panggil->no_telp, 'Antrian anda sudah dekat, silahkan menuju loket');
+        }
 
         return back()->with('succes', 'antrian terlewat');
     }
@@ -186,17 +200,18 @@ class antrianCrontroller extends Controller
         ]);
     }
 
-    public function kirimNotif($nomor, $pesan){
+    public function kirimNotif($nomor, $pesan)
+    {
         $token = 'Gd3FBw9M5DQ6ZfPCSSGh';
 
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https:://api.fonnte.com/send",
+            CURLOPT_URL => "https://api.fonnte.com/send",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
-            CUTLOPT_POSTFIELDS => [
-                'target' => $nomor, 
+            CURLOPT_POSTFIELDS => [
+                'target' => $nomor,
                 'message' => $pesan,
             ],
 
@@ -209,9 +224,5 @@ class antrianCrontroller extends Controller
         curl_close($curl);
 
         return $response;
-    }
-
-    function panggilAntrian(){
-        
     }
 }
