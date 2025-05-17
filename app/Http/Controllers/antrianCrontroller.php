@@ -152,7 +152,7 @@ class antrianCrontroller extends Controller
         $panggil = Antrian::where('id', $antrian->id + 2)
             ->first();
 
-        if ($panggil->no_telp) {
+        if (!empty($panggil->no_telp)) {
             $this->kirimNotif($panggil->no_telp, 'Antrian anda sudah dekat, silahkan menuju loket');
         }
 
@@ -168,7 +168,7 @@ class antrianCrontroller extends Controller
         $panggil = Antrian::where('id', $antrian->id + 2)
             ->first();
 
-        if ($panggil->no_telp) {
+        if (!empty($panggil->no_telp)) {
             $this->kirimNotif($panggil->no_telp, 'Antrian anda sudah dekat, silahkan menuju loket');
         }
 
@@ -224,5 +224,22 @@ class antrianCrontroller extends Controller
         curl_close($curl);
 
         return $response;
+    }
+
+    public function getTerbaru()
+    {
+        $antrian = Antrian::orderBy('created_at', 'desc')
+            ->where('status', 'inComplete')
+            ->where('isPriority', true)
+            ->first();
+
+        $sisa = Antrian::where('isPriority', true)
+            ->where('status', 'inComplete')
+            ->count();
+
+        return response()->json([
+            'antrian' => $antrian,
+            'sisaAntrian' => $sisa,
+        ]);
     }
 }

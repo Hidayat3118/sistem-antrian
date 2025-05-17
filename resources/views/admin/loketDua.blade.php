@@ -32,10 +32,11 @@
                     </div>
 
                     {{-- Sisa Antrian --}}
-                    <p class="text-3xl text-gray-700">Sisa Antrian: <span class="font-bold text-red-500">{{ $sisaAntrian }}</span></p>
+                    <p class="text-3xl text-gray-700">Sisa Antrian: <span id="sisaAntrian"
+                            class="font-bold text-red-500">{{ $sisaAntrian }}</span></p>
                     @if ($antrian)
                         {{-- Tombol Aksi --}}
-                        <div class="flex justify-center space-x-2">
+                        <div id="" class="flex justify-center space-x-2">
                             {{-- Panggil --}}
                             <button id="panggilBtn"
                                 class="bg-red-500 hover:bg-red-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
@@ -72,6 +73,30 @@
 
             {{-- Js Selesai --}}
             <script>
+                function updateAntrian() {
+                    fetch('/antrian/terbaru')
+                        .then(res => res.json())
+                        .then(data => {
+                            const aksiAntrian = document.getElementById('aksiAntrian');
+                            const nomorElem = document.querySelector('#nomorAntrian span');
+                            if (nomorElem && data.antrian) {
+                                nomorElem.textContent = data.antrian.nomor_antrian;
+                                aksiAntrian.classList.remove('hidden');
+                            } else {
+                                aksiAntrian.classList.add('hidden');
+                            }
+
+                            const sisaElem = document.getElementById('sisaAntrian');
+                            if (sisaElem) {
+                                sisaElem.textContent = data.sisaAntrian;
+                            }
+                        })
+                        .catch(err => console.error('Error fetching data:', err));
+                }
+
+                updateAntrian();
+                setInterval(updateAntrian, 5000);
+
                 function tandaiSelesai() {
                     const iconSelesai = document.getElementById("iconSelesai");
                     const textSelesai = document.getElementById("textSelesai");
