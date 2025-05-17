@@ -103,7 +103,7 @@
                 }
 
                 function updateAntrian() {
-                    fetch('/antrian/terbaru')
+                    fetch('/antrian/terbaru/prioritas')
                         .then(res => res.json())
                         .then(data => {
                             const nomorElem = document.querySelector('#nomorAntrian span');

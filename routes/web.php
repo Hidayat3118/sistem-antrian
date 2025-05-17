@@ -21,6 +21,7 @@ Route::post('/simpanAntrian', [antrianCrontroller::class, 'simpanAntrian']);
 Route::put('antrian/selesai/{antrian}', [antrianCrontroller::class, 'selesai'])->middleware('admin');
 Route::put('antrian/terlewat/{antrian}', [antrianCrontroller::class, 'terlewat']);
 Route::get('/antrian/terbaru/prioritas', [antrianCrontroller::class, 'getTerbaruPrioritas']);
+Route::get('/antrian/terbaru/umum', [antrianCrontroller::class, 'getTerbaruUmum']);
 
 
 Route::get('/user/monitor', [antrianCrontroller::class, 'monitor']);

@@ -242,4 +242,21 @@ class antrianCrontroller extends Controller
             'sisaAntrian' => $sisa,
         ]);
     }
+
+    public function getTerbaruUmum()
+    {
+        $antrian = Antrian::orderBy('created_at', 'desc')
+            ->where('status', 'inComplete')
+            ->where('isPriority', false)
+            ->first();
+
+        $sisa = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
+
+        return response()->json([
+            'antrian' => $antrian,
+            'sisaAntrian' => $sisa,
+        ]);
+    }
 }

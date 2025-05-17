@@ -32,41 +32,39 @@
                     </div>
 
                     {{-- Sisa Antrian --}}
-                    <p class="text-3xl text-gray-700">Sisa Antrian: <span class="font-bold text-red-500">{{ $sisaAntrian }}</span></p>
-
-                    @if ($antrian)
-                        {{-- Tombol Aksi --}}
-                        <div class="flex justify-center space-x-2">
-                            {{-- Panggil --}}
-                            <button id="panggilBtn"
-                                class="bg-green-500 hover:bg-green-600  py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
-                                <i class="fas fa-bullhorn"></i>
-                                <span class="text-xs md:text-sm lg:text-base">Panggil/Ulangi</span>
+                    <p class="text-3xl text-gray-700">Sisa Antrian: <span id="sisaAntrian"
+                            class="font-bold text-red-500">0</span></p>
+                    {{-- Tombol Aksi --}}
+                    <div id="aksiAntrian" class="flex justify-center space-x-2 hidden">
+                        {{-- Panggil --}}
+                        <button id="panggilBtn"
+                            class="bg-green-500 hover:bg-green-600  py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
+                            <i class="fas fa-bullhorn"></i>
+                            <span class="text-xs md:text-sm lg:text-base">Panggil/Ulangi</span>
+                        </button>
+                        {{-- Selesai --}}
+                        <form id="formSelesai" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button id="selesaiBtn" type="submit"
+                                class="bg-green-500 hover:bg-green-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
+                                onclick="tandaiSelesai()">
+                                <i id="iconSelesai" class="fas fa-check-circle"></i>
+                                <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
                             </button>
-                            {{-- Selesai --}}
-                            <form action="/antrian/selesai/{{ $antrian->id }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <button id="selesaiBtn" type="submit"
-                                    class="bg-green-500 hover:bg-green-600 py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200"
-                                    onclick="tandaiSelesai()">
-                                    <i id="iconSelesai" class="fas fa-check-circle"></i>
-                                    <span id="textSelesai" class="text-xs md:text-sm lg:text-base">Selesai</span>
-                                </button>
-                            </form>
+                        </form>
 
-                            {{-- Lanjut --}}
-                            <form action="/antrian/terlewat/{{ $antrian->id }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <button type="submit"
-                                    class="bg-green-500 hover:bg-green-600  py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
-                                    <span class="text-xs md:text-sm lg:text-base">Selanjutnya</span>
-                                    <i class="fas fa-arrow-right mt-1"></i>
-                                </button>
-                            </form>
-                        </div>
-                    @endif
+                        {{-- Lanjut --}}
+                        <form id="formTerlewat" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit"
+                                class="bg-green-500 hover:bg-green-600  py-2 px-3 lg:py-3 lg:px-3 rounded-lg text-white font-bold flex items-center space-x-2 shadow-lg transition-transform duration-300 hover:shadow-2xl hover:scale-105 border border-gray-200">
+                                <span class="text-xs md:text-sm lg:text-base">Selanjutnya</span>
+                                <i class="fas fa-arrow-right mt-1"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -139,12 +137,50 @@
                     }
                 }
 
+                function updateAntrian() {
+                    fetch('/antrian/terbaru/umum')
+                        .then(res => res.json())
+                        .then(data => {
+                            const nomorElem = document.querySelector('#nomorAntrian span');
+                            const aksiElem = document.getElementById('aksiAntrian');
+                            const formSelesai = document.getElementById('formSelesai');
+                            const formTerlewat = document.getElementById('formTerlewat');
+
+                            if (data.antrian) {
+                                nomorElem.textContent = data.antrian.nomor_antrian ?? 'kosong';
+                                document.getElementById('sisaAntrian').textContent = data.sisaAntrian;
+                                aksiElem.classList.remove('hidden');
+
+                                if (formSelesai) formSelesai.action = `/antrian/selesai/${data.antrian.id}`;
+                                if (formTerlewat) formTerlewat.action = `/antrian/terlewat/${data.antrian.id}`;
+
+                                const statusElem = document.querySelector('#nomorAntrian + p span');
+                                if (statusElem) statusElem.textContent = 'Belum dipanggil';
+
+                                // Reattach handler
+                                document.getElementById('panggilBtn')?.addEventListener('click', panggilNomor);
+                            } else {
+                                nomorElem.textContent = 'kosong';
+                                document.getElementById('sisaAntrian').textContent = '0';
+                                aksiElem.classList.add('hidden');
+
+                                if (formSelesai) formSelesai.action = '';
+                                if (formTerlewat) formTerlewat.action = '';
+                            }
+                        })
+                        .catch(err => console.error('Gagal ambil data:', err));
+                }
+
                 // Memuat suara saat daftar suara berubah (Chrome) atau saat halaman selesai dimuat (browser lainnya)
                 window.speechSynthesis.onvoiceschanged = muatSuara;
-                document.addEventListener("DOMContentLoaded", muatSuara);
+                document.addEventListener("DOMContentLoaded", () => {
+                    muatSuara();
+                    updateAntrian();
+                    setInterval(updateAntrian, 5000);
 
-                // Menangani pengulangan panggilan
-                document.getElementById('panggilBtn').addEventListener('click', panggilNomor);
+                    // Menangani pengulangan panggilan
+                    document.getElementById('panggilBtn').addEventListener('click', panggilNomor);
+                });
             </script>
 
         </main>
