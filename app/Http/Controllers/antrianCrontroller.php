@@ -226,7 +226,7 @@ class antrianCrontroller extends Controller
         return $response;
     }
 
-    public function getTerbaru()
+    public function getTerbaruPrioritas()
     {
         $antrian = Antrian::orderBy('created_at', 'desc')
             ->where('status', 'inComplete')
