@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('catatan')->nullable();
             $table->boolean('isPriority');
             $table->enum('cluster', ['anak', 'ortu', 'gigi']);
-            $table->enum('status', ['completed', 'inComplete', 'unserved'])->default('inComplete');
+            $table->enum('status', ['completed', 'inComplete', 'onProcess', 'unserved'])->default('inComplete');
+            $table->integer('loket')->nullable();
             $table->timestamps();
         });
     }

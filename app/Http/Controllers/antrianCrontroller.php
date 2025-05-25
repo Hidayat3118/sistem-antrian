@@ -108,14 +108,25 @@ class antrianCrontroller extends Controller
 
     public function loketUmum()
     {
-
-        $antrian = Antrian::where('status', 'inComplete')
+        $antrian = Antrian::where('status', 'onProcess')
             ->where('isPriority', false)
+            ->where('loket', 1)
             ->first();
+
+        if (!$antrian) {
+            $antrian = Antrian::where('status', 'inComplete')
+                ->where('isPriority', false)
+                ->first();
+
+            $antrian->status = 'onProcess';
+            $antrian->loket = 1;
+            $antrian->update();
+        }
 
         $sisaAntrian = Antrian::where('isPriority', false)
             ->where('status', 'inComplete')
             ->count();
+
 
         return view('admin.loketSatu', [
             'antrian' => $antrian,
@@ -127,9 +138,21 @@ class antrianCrontroller extends Controller
 
     public function loketPrioritas()
     {
-        $antrian = Antrian::where('status', 'inComplete')
+        $antrian = Antrian::where('status', 'onProcess')
             ->where('isPriority', true)
+            ->where('loket', 2)
             ->first();
+
+        if ($antrian) {
+            $antrian = Antrian::where('status', 'inComplete')
+                ->where('isPriority', true)
+                ->first();
+
+
+            $antrian->status = 'onProcess';
+            $antrian->loket = 2;
+            $antrian->update();
+        }
 
         $sisaAntrian = Antrian::where('isPriority', true)
             ->where('status', 'inComplete')
@@ -140,6 +163,99 @@ class antrianCrontroller extends Controller
             'sisaAntrian' => $sisaAntrian,
             'title' => 'Admin | Loket Prioritas',
             'active' => 'prioritas',
+        ]);
+    }
+
+    public function getTerbaruPrioritas()
+    {
+        $antrian = Antrian::orderBy('created_at', 'asc')
+            ->where('status', 'onProcess')
+            ->where('isPriority', true)
+            ->where('loket', 2)
+            ->first();
+
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'inComplete')
+                ->where('isPriority', true)
+                ->first();
+            $antrian->status = 'onProcess';
+            $antrian->loket = 2;
+            $antrian->update();
+        }
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'onProcess')
+                ->where('isPriority', false)
+                ->where('loket', 2)
+                ->first();
+        }
+
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'inComplete')
+                ->where('isPriority', false)
+                ->first();
+            $antrian->status = 'onProcess';
+            $antrian->loket = 2;
+            $antrian->update();
+        }
+
+        $sisa = Antrian::where('isPriority', true)
+            ->where('status', 'inComplete')
+            ->count();
+
+        return response()->json([
+            'antrian' => $antrian,
+            'sisaAntrian' => $sisa,
+        ]);
+    }
+
+    public function getTerbaruUmum()
+    {
+        $antrian = Antrian::orderBy('created_at', 'asc')
+            ->where('status', 'onProcess')
+            ->where('isPriority', false)
+            ->where('loket', 1)
+            ->first();
+
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'inComplete')
+                ->where('isPriority', false)
+                ->first();
+            $antrian->status = 'onProcess';
+            $antrian->loket = 1;
+            $antrian->update();
+        }
+
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'onProcess')
+                ->where('isPriority', true)
+                ->where('loket', 1)
+                ->first();
+        }
+
+
+
+        if (!$antrian) {
+            $antrian = Antrian::orderBy('created_at', 'asc')
+                ->where('status', 'inComplete')
+                ->where('isPriority', true)
+                ->first();
+            $antrian->status = 'onProcess';
+            $antrian->loket = 1;
+            $antrian->update();
+        }
+
+        $sisa = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
+
+        return response()->json([
+            'antrian' => $antrian,
+            'sisaAntrian' => $sisa,
         ]);
     }
 
@@ -224,39 +340,5 @@ class antrianCrontroller extends Controller
         curl_close($curl);
 
         return $response;
-    }
-
-    public function getTerbaruPrioritas()
-    {
-        $antrian = Antrian::orderBy('created_at', 'desc')
-            ->where('status', 'inComplete')
-            ->where('isPriority', true)
-            ->first();
-
-        $sisa = Antrian::where('isPriority', true)
-            ->where('status', 'inComplete')
-            ->count();
-
-        return response()->json([
-            'antrian' => $antrian,
-            'sisaAntrian' => $sisa,
-        ]);
-    }
-
-    public function getTerbaruUmum()
-    {
-        $antrian = Antrian::orderBy('created_at', 'desc')
-            ->where('status', 'inComplete')
-            ->where('isPriority', false)
-            ->first();
-
-        $sisa = Antrian::where('isPriority', false)
-            ->where('status', 'inComplete')
-            ->count();
-
-        return response()->json([
-            'antrian' => $antrian,
-            'sisaAntrian' => $sisa,
-        ]);
     }
 }

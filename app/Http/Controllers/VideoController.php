@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antrian;
 use Illuminate\Http\Request;
 use App\Models\Video;
 use Illuminate\Support\Facades\Storage;
@@ -51,8 +52,20 @@ class VideoController extends Controller
     public function monitor()
     {
         $video = Video::where('is_selected', true)->first();
+        $umum = Antrian::where('isPriority', false)->where('status', 'inComplete')->first();
+        $prioritas = Antrian::where('isPriority', true)->where('status', 'inComplete')->first();
+
+        if(!$umum && $prioritas){
+            $umum = $prioritas;
+        }
+
         // INi yang ku ubah
-        return view('video.monitor', compact('video'), ['active' => 'monitor']);
+        return view('video.monitor', compact('video'), [
+            'active' => 'monitor',
+            'title' => 'Admin | Monitor',
+            'umum' => $umum,
+            'prioritas' => $prioritas,
+        ]);
     }
 
     public function delete($id)
