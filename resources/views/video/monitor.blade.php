@@ -65,7 +65,6 @@
                         </div>
                         <div class="flex gap-4 text-white mb-12">
                             <div class="bg-green-400 w-full md:w-48 h-24 rounded-lg flex items-center justify-center shadow-lg text-3xl">{{ $umum ? $umum->nomor_antrian : 'kosong' }}</div>
-                            <div class="bg-green-400 w-full md:w-48 h-24 rounded-lg flex items-center justify-center shadow-lg text-3xl"></div>
                         </div>
     
                         <!-- Loket 2 -->
@@ -74,8 +73,7 @@
                             <span class="text-3xl">Loket 2</span>
                         </div>
                         <div class="flex gap-4 text-white">
-                            <div class="bg-green-400 w-full md:w-48 h-24 rounded-lg flex items-center justify-center shadow-lg text-3xl">{{ $prioritas ? $prioritas->nomor_antrian : 'kosong' }}</div>
-                            <div class="bg-green-400 w-full md:w-48 h-24 rounded-lg flex items-center justify-center shadow-lg text-3xl"></div>
+                            <div class="bg-green-400 w-full md:w-48 h-24 rounded-lg flex items-center justify-center shadow-lg text-3xl">{{ $prioritas ? $prioritas->nomor_antrian : 'kosong' }}</div>                        
                         </div>
                     </div>
                 </div>

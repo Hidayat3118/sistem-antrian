@@ -52,12 +52,16 @@ class VideoController extends Controller
     public function monitor()
     {
         $video = Video::where('is_selected', true)->first();
-        $umum = Antrian::where('isPriority', false)->where('status', 'inComplete')->first();
-        $prioritas = Antrian::where('isPriority', true)->where('status', 'inComplete')->first();
 
-        if(!$umum && $prioritas){
-            $umum = $prioritas;
-        }
+        $umum = Antrian::orderBy('created_at', 'asc')
+        ->where('status', 'onProcess')
+        ->where('loket', 1)
+        ->first();
+
+        $prioritas = Antrian::orderBy('created_at', 'asc')
+        ->where('status', 'onProcess')
+        ->where('loket', 2)
+        ->first();
 
         // INi yang ku ubah
         return view('video.monitor', compact('video'), [
