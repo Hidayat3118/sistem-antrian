@@ -108,29 +108,7 @@ class antrianCrontroller extends Controller
 
     public function loketUmum()
     {
-        $antrian = Antrian::where('status', 'onProcess')
-            ->where('isPriority', false)
-            ->where('loket', 1)
-            ->first();
-
-        if (!$antrian) {
-            $antrian = Antrian::where('status', 'inComplete')
-                ->where('isPriority', false)
-                ->first();
-
-            $antrian->status = 'onProcess';
-            $antrian->loket = 1;
-            $antrian->update();
-        }
-
-        $sisaAntrian = Antrian::where('isPriority', false)
-            ->where('status', 'inComplete')
-            ->count();
-
-
         return view('admin.loketSatu', [
-            'antrian' => $antrian,
-            'sisaAntrian' => $sisaAntrian,
             'title' => 'Admin | Loket Umum',
             'active' => 'umum',
         ]);
@@ -138,29 +116,7 @@ class antrianCrontroller extends Controller
 
     public function loketPrioritas()
     {
-        $antrian = Antrian::where('status', 'onProcess')
-            ->where('isPriority', true)
-            ->where('loket', 2)
-            ->first();
-
-        if ($antrian) {
-            $antrian = Antrian::where('status', 'inComplete')
-                ->where('isPriority', true)
-                ->first();
-
-
-            $antrian->status = 'onProcess';
-            $antrian->loket = 2;
-            $antrian->update();
-        }
-
-        $sisaAntrian = Antrian::where('isPriority', true)
-            ->where('status', 'inComplete')
-            ->count();
-
         return view('admin.loketDua', [
-            'antrian' => $antrian,
-            'sisaAntrian' => $sisaAntrian,
             'title' => 'Admin | Loket Prioritas',
             'active' => 'prioritas',
         ]);
@@ -179,9 +135,11 @@ class antrianCrontroller extends Controller
                 ->where('status', 'inComplete')
                 ->where('isPriority', true)
                 ->first();
-            $antrian->status = 'onProcess';
-            $antrian->loket = 2;
-            $antrian->update();
+            if ($antrian) {
+                $antrian->status = 'onProcess';
+                $antrian->loket = 2;
+                $antrian->update();
+            }
         }
         if (!$antrian) {
             $antrian = Antrian::orderBy('created_at', 'asc')
@@ -196,9 +154,11 @@ class antrianCrontroller extends Controller
                 ->where('status', 'inComplete')
                 ->where('isPriority', false)
                 ->first();
-            $antrian->status = 'onProcess';
-            $antrian->loket = 2;
-            $antrian->update();
+            if ($antrian) {
+                $antrian->status = 'onProcess';
+                $antrian->loket = 2;
+                $antrian->update();
+            }
         }
 
         $sisa = Antrian::where('isPriority', true)
@@ -224,9 +184,12 @@ class antrianCrontroller extends Controller
                 ->where('status', 'inComplete')
                 ->where('isPriority', false)
                 ->first();
-            $antrian->status = 'onProcess';
-            $antrian->loket = 1;
-            $antrian->update();
+
+            if ($antrian) {
+                $antrian->status = 'onProcess';
+                $antrian->loket = 1;
+                $antrian->update();
+            }
         }
 
         if (!$antrian) {
@@ -237,16 +200,17 @@ class antrianCrontroller extends Controller
                 ->first();
         }
 
-
-
         if (!$antrian) {
             $antrian = Antrian::orderBy('created_at', 'asc')
                 ->where('status', 'inComplete')
                 ->where('isPriority', true)
                 ->first();
-            $antrian->status = 'onProcess';
-            $antrian->loket = 1;
-            $antrian->update();
+
+            if ($antrian) {
+                $antrian->status = 'onProcess';
+                $antrian->loket = 1;
+                $antrian->update();
+            }
         }
 
         $sisa = Antrian::where('isPriority', false)
