@@ -53,6 +53,14 @@ class VideoController extends Controller
     {
         $video = Video::where('is_selected', true)->first();
 
+        // INi yang ku ubah
+        return view('video.monitor', compact('video'), [
+            'active' => 'monitor',
+            'title' => 'Admin | Monitor',
+        ]);
+    }
+
+    public function monitorData(){
         $umum = Antrian::orderBy('created_at', 'asc')
         ->where('status', 'onProcess')
         ->where('loket', 1)
@@ -63,12 +71,9 @@ class VideoController extends Controller
         ->where('loket', 2)
         ->first();
 
-        // INi yang ku ubah
-        return view('video.monitor', compact('video'), [
-            'active' => 'monitor',
-            'title' => 'Admin | Monitor',
-            'umum' => $umum,
-            'prioritas' => $prioritas,
+        return response()->json([
+            'umum' => $umum ? $umum->nomor_antrian : null,
+            'prioritas' => $prioritas ? $prioritas->nomor_antrian : null,
         ]);
     }
 

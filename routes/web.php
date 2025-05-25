@@ -63,5 +63,6 @@ Route::get('/upload', [VideoController::class, 'index'])->name('video.index');
 Route::post('/upload', [VideoController::class, 'store'])->name('video.store');
 Route::put('/select/{id}', [VideoController::class, 'select'])->name('video.select');
 Route::get('/monitor', [VideoController::class, 'monitor'])->name('video.monitor');
+Route::get('/monitor/data', [VideoController::class, 'monitorData']);
 Route::delete('delete/{id}', [VideoController::class, 'delete'])->name('video.delete');
 
