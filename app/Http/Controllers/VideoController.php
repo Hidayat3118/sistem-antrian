@@ -66,14 +66,24 @@ class VideoController extends Controller
         ->where('loket', 1)
         ->first();
 
+        $sisaUmum = Antrian::where('isPriority', false)
+            ->where('status', 'inComplete')
+            ->count();
+
         $prioritas = Antrian::orderBy('created_at', 'asc')
         ->where('status', 'onProcess')
         ->where('loket', 2)
         ->first();
 
+        $sisaPriotitas = Antrian::where('isPriority', true)
+        ->where('status', 'inComplete')
+        ->count();
+
         return response()->json([
             'umum' => $umum ? $umum->nomor_antrian : null,
             'prioritas' => $prioritas ? $prioritas->nomor_antrian : null,
+            'sisaUmum' => $sisaUmum, 
+            'sisaPrioritas' => $sisaPriotitas,
         ]);
     }
 

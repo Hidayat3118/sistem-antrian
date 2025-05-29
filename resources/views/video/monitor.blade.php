@@ -101,6 +101,8 @@
                 .then(data => {
                     const umumElem = document.getElementById('antrian-umum');
                     const prioritasElem = document.getElementById('antrian-prioritas');
+                    const sisaUmum = document.getElementById('sisa-umum');
+                    const sisaPrioritas = document.getElementById('sisa-prioritas');
 
                     if (umumElem) {
                         umumElem.textContent = data.umum ?? '-';
@@ -109,6 +111,9 @@
                     if (prioritasElem) {
                         prioritasElem.textContent = data.prioritas ?? '-';
                     }
+
+                    sisaUmum.textContent = data.sisaUmum ?? '0';
+                    sisaPrioritas.textContent = data.sisaPrioritas ?? '0';
                 })
                 .catch(err => {
                     console.error('Gagal update data : ', err);
