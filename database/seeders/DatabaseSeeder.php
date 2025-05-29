@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('1234'),
         ]);
 
+        
         $rekaps = [
             [
                 'tanggal' => '2024-11-20',

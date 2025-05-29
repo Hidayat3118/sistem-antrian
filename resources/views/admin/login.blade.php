@@ -53,7 +53,7 @@
                         <input type="checkbox" class="form-checkbox text-blue-500">
                         <span class="ml-2 text-white">Remember me</span>
                     </label>
-                    <a href="#" class="text-white text-sm">Forgot Password?</a>
+                   
                 </div>
                 <button
                     class="bg-yellow-400 text-black rounded-md py-2 w-full hover:bg-yellow-500 font-bold  transition duration-200 transform hover:scale-105">LOGIN</button>
