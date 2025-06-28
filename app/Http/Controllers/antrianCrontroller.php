@@ -9,82 +9,83 @@ use Illuminate\Support\Facades\Auth;
 
 class antrianCrontroller extends Controller
 {
+    /**
+     * Fungsi publik untuk menampilkan halaman antrian UMUM.
+     */
     public function makeAntrianUmum($cluster)
     {
-        $date = Carbon::now()->translatedFormat('l, d F Y');
-        $time = Carbon::now()->translatedFormat('H:i');
+        // Panggil helper untuk membuat nomor baru (false = tidak prioritas)
+        $newQueueNumber = $this->generateNewQueueNumber(false);
 
-        $lastQueue = Antrian::where('isPriority', false)->latest('id')->first();
-
-        if ($lastQueue) {
-            $lastNumber = (int) substr($lastQueue->nomor_antrian, 1);
-            $newNumber = $lastNumber + 1;
-        } else {
-            $newNumber = 1;
-        }
-
-        $clusterTeks = [
-            'anak' => 'Cluster 2',
-            'ortu' => 'Cluster 3',
-            'gigi' => 'Gigi'
-        ];
-
-        $clusterNama = $clusterTeks[$cluster];
-
-        $newQueueNumber = 'B' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
-        $sisaAntrian = Antrian::where('isPriority', false)
-            ->where('status', 'inComplete')
+        // Hitung sisa antrian HARI INI yang belum selesai
+        $sisaAntrian = Antrian::whereDate('created_at', Carbon::today())
+            ->where('isPriority', false)
+            ->whereIn('status', ['inComplete', 'unserved', 'waiting'])
             ->count();
 
-        return view('user.antrianUmum', [
-            'antrian' => $newQueueNumber,
-            'tanggal' => $date,
-            'waktu' => $time,
-            'sisaAntrian' => $sisaAntrian,
-            'title' => 'Puskesmas | Antrian Umum',
-            'cluster' => $cluster,
-            'clusterNama' => $clusterNama,
-        ]);
+        return $this->prepareAntrianView($cluster, $newQueueNumber, $sisaAntrian, 'Umum', false);
     }
 
+    /**
+     * Fungsi publik untuk menampilkan halaman antrian PRIORITAS.
+     */
     public function makeAntrianPrioritas($cluster)
     {
-        $date = Carbon::now()->translatedFormat('l, d F Y');
-        $time = Carbon::now()->translatedFormat('H:i');
+        // Panggil helper untuk membuat nomor baru (true = prioritas)
+        $newQueueNumber = $this->generateNewQueueNumber(true);
 
-        $lastQueue = Antrian::where('isPriority', true)->latest('id')->first();
-
-        if ($lastQueue) {
-            $lastNumber = (int) substr($lastQueue->nomor_antrian, 1);
-            $newNumber = $lastNumber + 1;
-        } else {
-            $newNumber = 1;
-        }
-
-        $newQueueNumber = 'A' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
-
-        $clusterTeks = [
-            'anak' => 'Cluster 2',
-            'ortu' => 'Cluster 3',
-            'gigi' => 'Gigi'
-        ];
-
-        $clusterNama = $clusterTeks[$cluster];
-
-        $sisaAntrian = Antrian::where('isPriority', false)
-            ->where('status', 'inComplete')
+        // Hitung sisa antrian HARI INI yang belum selesai
+        $sisaAntrian = Antrian::whereDate('created_at', Carbon::today())
+            ->where('isPriority', true)
+            ->whereIn('status', ['inComplete', 'unserved', 'waiting'])
             ->count();
 
-        return view('user.antrianPrioritas', [
+        return $this->prepareAntrianView($cluster, $newQueueNumber, $sisaAntrian, 'Prioritas', true);
+    }
+
+
+    private function generateNewQueueNumber(bool $isPriority): string
+    {
+        // 1. Tentukan Prefix: 'A' untuk Prioritas, 'B' untuk Umum/Biasa
+        $prefix = $isPriority ? 'A' : 'B';
+
+        // 2. Kueri yang BENAR: Cari antrian terakhir HARI INI untuk TIPE yang sama
+        $lastQueue = Antrian::whereDate('created_at', Carbon::today()) // <-- KUNCI RESET HARIAN
+            ->where('isPriority', $isPriority)     // <-- HANYA membedakan prioritas
+            ->latest('id')
+            ->first();
+
+        // 3. Hitung nomor berikutnya
+        $newNumber = 1; // Default nomor adalah 1
+        if ($lastQueue) {
+            // Ambil bagian angka dari nomor antrian terakhir (misal: dari 'A005' ambil '005')
+            $lastNumberPart = substr($lastQueue->nomor_antrian, 1);
+            $newNumber = (int) $lastNumberPart + 1;
+        }
+
+        // 4. Format nomor antrian baru dengan gabungkan prefix dan padding nol
+        return $prefix . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+    }
+
+    private function prepareAntrianView($cluster, $newQueueNumber, $sisaAntrian, $tipeTitle, $isPriority)
+    {
+        $clusterTeks = [
+            'anak' => 'Poli Anak',
+            'ortu' => 'Poli Umum',
+            'gigi' => 'Poli Gigi'
+        ];
+
+        return view($isPriority ? 'user.antrianPrioritas' : 'user.antrianUmum', [
             'antrian' => $newQueueNumber,
-            'tanggal' => $date,
-            'waktu' => $time,
+            'tanggal' => Carbon::now()->translatedFormat('l, d F Y'),
+            'waktu' => Carbon::now()->translatedFormat('H:i'),
             'sisaAntrian' => $sisaAntrian,
-            'title' => 'Puskesmas | Antrian Prioritas',
+            'title' => 'Puskesmas | Antrian ' . $tipeTitle,
             'cluster' => $cluster,
-            'clusterNama' => $clusterNama,
+            'clusterNama' => $clusterTeks[$cluster],
         ]);
     }
+
 
     public function simpanAntrian(Request $request)
     {
