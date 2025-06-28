@@ -85,7 +85,9 @@
                     </tbody>
 
                 </table>
-
+                <div class="mt-8">
+                    {{ $rekaps->links() }}
+                </div>
             </main>
 
 
