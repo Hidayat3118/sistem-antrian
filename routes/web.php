@@ -66,3 +66,20 @@ Route::get('/monitor', [VideoController::class, 'monitor'])->name('video.monitor
 Route::get('/monitor/data', [VideoController::class, 'monitorData']);
 Route::delete('delete/{id}', [VideoController::class, 'delete'])->name('video.delete');
 
+//testing
+Route::get('/test/notif', function () {
+    // 1. Buat instance dari controller yang memiliki fungsi kirimNotif
+    // Ganti 'NotificationController' jika nama controller Anda berbeda
+    $notifController = new antrianCrontroller();
+
+    // 2. Siapkan data dummy untuk testing
+    $nomorTujuan = '081254260893'; // <-- GANTI DENGAN NOMOR WA ANDA UNTUK TES
+    $pesanTes = "Halo! 👋 Ini adalah pesan tes notifikasi dari aplikasi Laravel. Cron job sudah berhasil!";
+
+    // 3. Panggil fungsi kirimNotif dengan data tes
+    $response = $notifController->kirimNotif($nomorTujuan, $pesanTes);
+
+    // 4. Tampilkan response dari API Fonnte untuk debugging
+    // dd() adalah 'dump and die', sangat berguna untuk melihat output
+    dd(json_decode($response));
+});
